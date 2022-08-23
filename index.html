@@ -1,6 +1,171 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>UFCG - Home</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="shortcut icon" href="ufcg/image/UUCG_favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="ufcg/css/style.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+<!--link rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+	integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+	crossorigin="anonymous"-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+</head>
 <body>
-  Hello, world!
+	<section style="min-height:100%;padding-bottom:3rem">
+		<div class="container">
+		<div class="jumbotron" style="margin-top:3rem; margin-bottom:3rem; padding:3rem 2rem;">
+			<!--
+				<div class="row">
+					<div class="col-5">
+						<h1 class="text-right" style="font-size:4rem">UUCG</h1>
+					</div>
+					<div class="col-7">
+						<h5 class="text-left lead" style="margin-top:0.8rem">Reconstruction of Phylogenomic Tree using <br>
+							<span style="font-size:1.5rem;">U</span>p-to-date
+							<span style="font-size:1.5rem;">U</span>niversal
+							<span style="font-size:1.5rem;">C</span>ore
+							<span style="font-size:1.5rem;">G</span>enes
+						</h5>
+					</div>
+				</div>-->
+			<img src="ufcg/image/UFCG_banner_univ.svg" style="max-width:70%;height:auto;width:auto;margin-left:auto;margin-right:auto;display:block">
+			<p class="p_home p1 text-center" style="margin-top:0!important">
+				UFCG is a suite of database and pipeline about <strong>highly conserved</strong> and <strong>evolutionarily informative</strong> set of fungal marker genes,<br>
+				pre-defined with a qualified set of genome sequences from the species across the kingdom of Fungi.<br>
+			</p>
+			<div class="text-center">
+				<a class="btn btn-primary p_home" href="ufcg/about.html" role="button">
+					<i class="fa fa-caret-right"></i> Learn more</a>
+			</div></div>
+<!--				<p class="p_home">The pipeline involves following functions.</p>
+				<ul>
+					<li>Extraction of pre-defined core genes from genome
+						assemblies</li>
+					<li>Multiple alignment and concatenation of the genes</li>
+					<li>Filtering gap-rich columns of alignments</li>
+					<li>Phylogenetic analysis using RAxML or FastTree</li>
+					<li>Calculation of Gene Support Index (GSI) which indicates
+						how many genes trees support each branch in the tree inferred from concatenated sequence.</li>
+				</ul>	!-->
+		</div>
+		<div class="container p1" style="margin-bottom:5rem">
+			<h3 class="text-center" style="font-family:serif"><em>Contents</em></h3>
+			<hr>
+			<div class="row">
+				<div class="col-6">
+					<h3>Databases</h3>
+					<ul style="list-style-type:none; padding-left:0">
+					<li><i class="fa fa-check-square" style="width:1rem"></i><span style="font-size:1.2rem;padding-left:0.5rem">61</span> marker genes</li>
+					<li><i class="fa fa-database" style="width:1rem"></i><span style="font-size:1.2rem;padding-left:0.5rem">1,587</span> fungal species</li>
+					<li><i class="fa fa-archive" style="width:1rem"></i><span style="font-size:1.2rem;padding-left:0.5rem">10,984</span> qualified assemblies</li>
+					</ul>
+					<a class="btn btn-outline-primary" href="ufcg/genes.html" role="button" style="display:inline-block;margin-right:1rem">
+						<i class="fa fa-check-square"></i> Gene </a>
+					<a class="btn btn-outline-primary" href="ufcg/species.html" role="button" style="display:inline-block;margin-right:1rem">
+						<i class="fa fa-database"></i> Species </a>
+				</div>
+				<div class="col-6">
+					<h3>Pipeline</h3>
+					<ul style="list-style-type:none; padding-left:0">
+					<li><i class="fa fa-code" style="width:1rem"></i><span style="font-size:1.2rem;padding-left:0.5rem">Java</span> application</li>
+					<li><i class="fa fa-desktop" style="width:1rem"></i><span style="font-size:1.2rem;padding-left:0.5rem">Linux / macOS</span> support</li>
+					<li><i class="fa fa-book" style="width:1rem"></i><span style="font-size:1.2rem;padding-left:0.5rem">User guide</span></li>
+					</ul>
+					<a class="btn btn-outline-primary" href="ufcg/manual.html" role="button" style="display:inline-block; margin-right:1rem">
+					<i class="fa fa-check-square-o"></i> Manual</a>
+					<a class="btn btn-outline-primary" href="ufcg/tutorial.html" role="button" style="display:inline-block; margin-right:1rem">
+					<i class="fa fa-play-circle-o"></i> Tutorial</a>
+					<a class="btn btn-outline-primary" href="ufcg/download.html" role="button" style="display:inline-block">
+					<i class="fa fa-download"></i> Download</a>
+				</div>				
+			</div>
+		</div>
+		<div class="container p1" style="margin-bottom:5rem">
+		</div>
+	</section>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="ufcg.html"><img src="ufcg/image/UFCG_logo.svg" width="30"> UFCG</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarsExampleDefault"
+				aria-controls="navbarsExampleDefault" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="ufcg.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="ufcg/about.html">About</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/database" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Database</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="ufcg/genes.html">Genes</a>
+							<a class="dropdown-item" href="ufcg/species.html">Species</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/pipeline" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pipeline</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="ufcg/manual.html">Manual</a>
+							<a class="dropdown-item" href="ufcg/tutorial.html">Tutorial</a>
+							<a class="dropdown-item" href="ufcg/download.html">Download</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/links" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Links</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="https://github.com/endixk/ufcg" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i> GitHub</a>
+							<a class="dropdown-item" href="https://steineggerlab.com" target="_blank" rel="noopener noreferrer"><i class="fa fa-flask"></i> Steinegger Lab</a>
+							<a class="dropdown-item" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fa fa-creative-commons"></i> License</a>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="ufcg/citation.html">Cite us</a></li>
+					</ul>
+			</div>
+		</div>
+	</nav>
+	<script>
+		$(document).ready(function() {
+			var pname = window.location.pathname;
+			var phead = '/ufcg';
+			if(pname.split('/').length > 2){
+				phead = phead + '/' + pname.split('/')[2];
+			}
+			if(phead == '/ufcg/genes' || phead == '/ufcg/species'){
+			 	phead = '/ufcg/database'
+			}
+			if(phead == '/ufcg/manual' || phead == '/ufcg/tutorial' || phead == '/ufcg/download'){
+			 	phead = '/ufcg/pipeline'
+			}
+			$('.navbar-nav > li > a[href="'+ phead +'"]').parent().addClass('active');
+		})
+	</script>
 </body>
 </html>
