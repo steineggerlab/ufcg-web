@@ -127,7 +127,7 @@
 						</figure>
 						<hr>
 						<h4>Manual installation</h4>
-						<h5>Download <a href="../download.html" target="_blank"><i class="fa fa-link" style="font-size:70%"></i></a></h5>
+						<h5>Download <a href="../download" target="_blank"><i class="fa fa-link" style="font-size:70%"></i></a></h5>
 						<p class="plast">Download and unzip the compressed UFCG pipeline from the download page, or use this direct link. <a href="https://github.com/endixk/ufcg/releases/latest/download/UFCG.zip"><i class="fa fa-file-archive-o"></i></a><br>UFCG runs with the command-line interface on UNIX based operating systems. (Linux, macOS etc.)</p>
 						<h5>Requirements</h5>
 						<p>Before installation, please make sure that the required programs are properly installed. Links for the installation of the requirements are listed in the download page.</p>
@@ -195,16 +195,16 @@
 							<li><strong class="inline-code">seq/</strong> contains reference protein/nucleotide sequences of pre-defined genetic markers.</li>
 							<li><strong class="inline-code">model/</strong> contains hidden Markov models, defined by protein sequences in <strong class="inline-code">seq/</strong>.
 								<ul style="font-size:90%">
-									<li>Detailed information of the genes are provided here.<a href="../genes.html" target="_blank"><i class="fa fa-link"></i></a></li>
+									<li>Detailed information of the genes are provided here.<a href="../genes" target="_blank"><i class="fa fa-link"></i></a></li>
 								</ul>
 							</li>
-							<li><span class="inline-code">ppx.cfg</span> is a config file used in gene prediction stage, utilized with AUGUSTUS. <a href="http://bioinf.uni-greifswald.de/augustus/binaries/tutorial/ppx.html" target="_blank" rel="noopener noreferer"><i class="fa fa-external-link"></i></a></li>
+							<li><span class="inline-code">ppx.cfg</span> is a config file used in gene prediction stage, utilized with AUGUSTUS. <a href="http://bioinf.uni-greifswald.de/augustus/binaries/tutorial/ppx" target="_blank" rel="noopener noreferer"><i class="fa fa-external-link"></i></a></li>
 							<li><span class="inline-code">tree.cfg</span> is a config file for <code>tree</code> module, containing path information of dependant binaires.</li>
 						</ul>
 						<p class="plast"></p>
 						<h4>Samples</h4>
 						<ul>
-							<li>Sample input and output files are prepared in <strong class="inline-code">sample/</strong> directory. Visit tutorial page to learn how to use them.<a href="../tutorial.html" target="_blank"><i class="fa fa-link"></i></a></li>
+							<li>Sample input and output files are prepared in <strong class="inline-code">sample/</strong> directory. Visit tutorial page to learn how to use them.<a href="../tutorial" target="_blank"><i class="fa fa-link"></i></a></li>
 							<li><strong class="inline-code" style="color:#0000cc">meta_*.tsv</strong> is a sample of TSV formatted metadata, which can be provided to the pipeline for annotating genomes.<br>
 								<ul style="font-size:90%">
 									<li>More information about metadata is written in the <strong>Input files - Metadata</strong> section below.</li>
@@ -302,7 +302,7 @@
 							</caption>
 						</table></div>
 						<p>To provide the metadata to the pipeline, you should create a <strong>TSV (tab-separated values) formatted file</strong> including the data and specify it as an argument. TSV file must include the header line indicating entries, and respectively ordered metadata of the genomes one per line.</p>
-						<p>There are sample metadata TSV files prepared for your guidance. Visit tutorial page to find out how to use them.<a href="../tutorial.html" target="_blank"><i class="fa fa-link"></i></a></p>
+						<p>There are sample metadata TSV files prepared for your guidance. Visit tutorial page to find out how to use them.<a href="../tutorial" target="_blank"><i class="fa fa-link"></i></a></p>
 						<ul>
 							<li><strong class="inline-code">sample/meta_full.tsv</strong> contains fully constructed metadata of genomes in <span class="inline-code">sample/seq/</span> directory.</li>
 							<li><strong class="inline-code">sample/meta_simple.tsv</strong> contains minumum data of the genomes.</li>
@@ -538,14 +538,14 @@
 				<div class="bd-sidebar hidden-mobile">
 					<nav id="bd-docs-nav">
 						<ul class="nav bd-sidenav">
-							<li><a href="index.html#start"><strong>Quick start</strong></a></li>
-							<li><a href="index.html#content"><strong>Contents</strong></a></li>
-							<li><a href="index.html#input"><strong>Input files</strong></a></li>
-							<li><a href="index.html#uucgf"><strong>Running <span class="inline-code">profile</span></strong></a></li>
-							<li><a href="index.html#uucgtree"><strong>Running <span class="inline-code">tree</span></strong></a></li>
-							<li><a href="index.html#trouble"><strong>Troubleshooting</strong></a></li>
-							<li><a href="index.html#about"><strong>About us</strong></a></li>
-							<li><a href="index.html#top" style="font-size:90%">Back to top</a></li>
+							<li><a href="index#start"><strong>Quick start</strong></a></li>
+							<li><a href="index#content"><strong>Contents</strong></a></li>
+							<li><a href="index#input"><strong>Input files</strong></a></li>
+							<li><a href="index#uucgf"><strong>Running <span class="inline-code">profile</span></strong></a></li>
+							<li><a href="index#uucgtree"><strong>Running <span class="inline-code">tree</span></strong></a></li>
+							<li><a href="index#trouble"><strong>Troubleshooting</strong></a></li>
+							<li><a href="index#about"><strong>About us</strong></a></li>
+							<li><a href="index#top" style="font-size:90%">Back to top</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -555,7 +555,7 @@
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="../../ufcg.html"><img src="../image/UFCG_logo.svg" width="30"> UFCG</a>
+				<a class="navbar-brand" href="../../ufcg"><img src="../image/UFCG_logo.svg" width="30"> UFCG</a>
 			</div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarsExampleDefault"
@@ -565,23 +565,23 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="../../ufcg.html">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+					<li class="nav-item"><a class="nav-link" href="../../ufcg">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="../about">About</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/database" id="dropdown01"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Database</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown01">
-							<a class="dropdown-item" href="../genes.html">Genes</a>
-							<a class="dropdown-item" href="../species.html">Species</a>
+							<a class="dropdown-item" href="../genes">Genes</a>
+							<a class="dropdown-item" href="../species">Species</a>
 						</div>
 					</li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/pipeline" id="dropdown01"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pipeline</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown01">
-							<a class="dropdown-item" href="../manual.html">Manual</a>
-							<a class="dropdown-item" href="../tutorial.html">Tutorial</a>
-							<a class="dropdown-item" href="../download.html">Download</a>
+							<a class="dropdown-item" href="../manual">Manual</a>
+							<a class="dropdown-item" href="../tutorial">Tutorial</a>
+							<a class="dropdown-item" href="../download">Download</a>
 						</div>
 					</li>
 					<li class="nav-item dropdown"><a
@@ -593,7 +593,7 @@
 							<a class="dropdown-item" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fa fa-creative-commons"></i> License</a>
 						</div>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="../citation.html">Cite us</a></li>
+					<li class="nav-item"><a class="nav-link" href="../citation">Cite us</a></li>
 					</ul>
 			</div>
 		</div>
