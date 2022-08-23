@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 592.63 162.27"
+   version="1.1"
+   sodipodi:docname="UFCG_banner_univ.svg"
+   inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview586"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.1024923"
+     inkscape:cx="296.315"
+     inkscape:cy="82.045486"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" />
+  <defs
+     id="defs547">
+    <style
+       id="style538">.cls-1{font-size:30px;fill:#666;letter-spacing:0.01em;}.cls-1,.cls-5{font-family:ArialRoundedMTBold, Arial Rounded MT Bold;}.cls-2{letter-spacing:-0.01em;}.cls-3{letter-spacing:-0.01em;}.cls-4{letter-spacing:0.01em;}.cls-5{font-size:90px;fill:#333;letter-spacing:0.01em;}.cls-6{fill:gray;}.cls-7{fill:#65c8d0;}.cls-8{fill:#099;}.cls-9{fill:url(#linear-gradient);}</style>
+    <linearGradient
+       id="linear-gradient"
+       x1="91.1"
+       y1="85.45"
+       x2="91.1"
+       y2="18.14"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0.11"
+         stop-color="gray"
+         id="stop540" />
+      <stop
+         offset="0.36"
+         stop-color="#099"
+         id="stop542" />
+      <stop
+         offset="1"
+         stop-color="#65c8d0"
+         id="stop544" />
+    </linearGradient>
+  </defs>
+  <title
+     id="title549">UFCG_banner</title>
+  <text
+     class="cls-1"
+     transform="scale(0.97182532,1.0289915)"
+     id="text563"
+     x="89.332985"
+     y="123.99094"
+     style="font-size:28px;stroke-width:0.874643"><tspan
+       class="cls-2"
+       x="186.51454"
+       y="123.99094"
+       id="tspan551"
+       style="font-size:28px;stroke-width:0.874643">Universal Fungal Core Genes</tspan></text>
+  <text
+     class="cls-5"
+     transform="translate(177.29 91.61) scale(0.86 0.9)"
+     id="text565">UFCG</text>
+  <polygon
+     class="cls-6"
+     points="90.96 43.76 46.41 69.51 60.34 77.56 104.89 51.81 90.96 43.76"
+     id="polygon567" />
+  <polygon
+     class="cls-7"
+     points="46.55 69.51 60.47 77.56 60.49 112.94 46.55 120.98 46.55 69.51"
+     id="polygon569" />
+  <polygon
+     class="cls-7"
+     points="60.44 112.94 91.1 130.63 91.03 146.74 46.49 120.99 60.44 112.94"
+     id="polygon571" />
+  <polygon
+     class="cls-8"
+     points="91.16 130.63 135.65 104.91 135.66 121 91.1 146.75 91.16 130.63"
+     id="polygon573" />
+  <polygon
+     class="cls-8"
+     points="105.02 51.8 105.02 87.2 60.47 112.96 60.45 77.55 105.02 51.8"
+     id="polygon575" />
+  <polygon
+     class="cls-6"
+     points="104.89 87.2 135.5 104.91 91.02 130.63 60.36 112.94 104.89 87.2"
+     id="polygon577" />
+  <polygon
+     class="cls-8"
+     points="91.08 120.99 127.3 100.09 127.3 75.2 91.08 120.99"
+     id="polygon579" />
+  <polygon
+     class="cls-7"
+     points="90.95 120.99 68.72 108.11 104.89 62.31 127.16 75.2 90.95 120.99"
+     id="polygon581" />
+  <path
+     class="cls-9"
+     d="M153.73,54.4c4.82,11.93-1.75,21.2-13.94,25.78-12.23,4.86-30.09,5-48.69,5.27-18.61-.24-36.46-.41-48.69-5.27C30.22,75.6,23.65,66.33,28.47,54.4c4.3-11.9,18.13-21.77,30.09-27.74C71,20.53,81.62,18.32,91.1,18.14c9.48.18,20.07,2.39,32.53,8.52C135.59,32.63,149.42,42.5,153.73,54.4Z"
+     id="path583" />
+  <metadata
+     id="metadata604">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>UFCG_banner</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

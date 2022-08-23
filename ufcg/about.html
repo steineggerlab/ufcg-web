@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UFCG - About</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="shortcut icon" href="image/UUCG_favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+<!--link rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+	integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+	crossorigin="anonymous"-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<style>
+	.infobox {
+		margin-bottom: 0rem;
+	}
+	.infoheader{
+		padding-top: 2rem;
+	}
+	.inline-code{
+		font-size:85%;
+		font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+	}
+	.modal-button:hover{
+		color:gray;
+	}
+	table > thead > tr > th, table > tbody > tr > th, table > tbody > tr > td{
+		padding:.3rem 1rem !important;
+	}
+	code{
+		background:#e5e7e9;
+		padding:2px 2px;
+		border-radius:2px;
+	}
+</style>
+</head>
+<body>
+	<section style="min-height:100%;padding-bottom:3rem" class="body_section">
+		<div class="container p1">
+				<img src="image/UFCG_banner_univ.svg" style="max-width:70%;margin-left:auto;margin-right:auto;height:auto;width:auto;display:block">
+				<div class="infobox">
+					<h1 id="about" class="infoheader">What is UFCG?</h1><hr>
+					<p>UFCG stands for <strong>Universal Fungal Core Genes</strong>, which is a combined suite of the fungal marker gene database and the bioinformatic pipeline tool, developed to provide an accessible and credible software suite for the phylogenetic study of fungi.</p>
+					<p>UFCG project features:</p>
+					<ul>
+						<li><strong>Pre-defined marker gene database</strong>, along with the downloadable sequences and HMMs</li>
+						<li><strong>Reference fungal species database</strong>, providing taxonomic information and pre-extracted genetic markers</li>
+						<li><strong>Pipeline tool and manual</strong> to analyze your own biological sequences</li>
+						
+					</ul>
+				</div>
+				<div class="infobox">
+					<h2 id="genes" class="infoheader">Gene set database <a href="genes/index.html" target="_blank"><i class="fa fa-link"></i></a></h2><hr>
+					<p>UFCG gene database is a combination of <strong>canonical genes</strong> and <strong>core genes</strong> of fungi.</p>
+					<p>The canonical genes were first defined and included by literature search, which have been frequently used and accepted by fungal taxonomists.</p>
+					<p>In addition, the novel set of genes were also included using the concept of <strong>core gene</strong>: the most widely used methodology for the genome-based phylogenetic tree reconstruction. Core genes can be defined as:</p>
+					<ul>
+						<li>Genes that are present in a <strong>majority of species</strong> <i class="fa fa-info-circle modal-button" data-toggle="modal" data-target="#core"></i></li>
+						<li>Genes that are proven to be <strong>orthologous as a single copy</strong></li>
+					</ul>
+					<p>We prepared the organized list of the genes, including their annotations, visualized MSAs and downloadable resources.</p>
+				</div>
+				<div class="infobox">
+					<h2 id="genes" class="infoheader">Species database <a href="species/index.html" target="_blank"><i class="fa fa-link"></i></a></h2><hr>
+					<p>UFCG species database contains a list of 1,587 reference species that have been used to define the novel markers.</p>
+					<p>You can navigate through the list by sorting or searching their taxonomic names.</p>
+					<p>For each species, you have an access to:</p>
+					<ul>
+						<li>Link to the NCBI Assembly database with their accession number</li>
+						<li>Downloadable ITS, UFCG, and BUSCO sequences in JSON format, pre-extracted with UFCG pipeline</li>
+					</ul>
+					<p>In addition, we provide downloadable archives of the resources from 10,984 assemblies, encompassing both taxonomically representative and redundant entries.</p>
+				</div>
+				<div class="infobox">
+					<h2 id="concept" class="infoheader">Bioinformatics pipeline <a href="manual/index.html" target="_blank"><i class="fa fa-link"></i></a></h2><hr>
+					<p>We designed the pipeline for the users who wish to analyze hundreds of whole-genome assemblies. The core modules of the pipeline are briefed here to help you understand and maximize the utility of our pipeline.</p>
+					<ul>
+						<li><code>profile</code> module extracts previously described <strong>core genes</strong>, using the corresponding HMM profiles.
+						<ul>
+							<li style="font-size:90%">In addition, ITS nucleotide marker and BUSCO sequences can also be extracted as an option.</li>
+						</ul>
+						</li>
+						<li>Extracted UFCG profiles from each genome are stored in a <strong>single <span class="inline-code">.ucg</span> formatted file</strong>. See below for more information about this file format.</li>
+						<li><code>tree</code> module carries out <strong>phylogenetic analysis</strong> using a set of <span class="inline-code">.ucg</span> files from different species. Specifically, <code>tree</code> module features:
+						<ul>
+							<li style="font-size:90%"><strong>Multiple alignment</strong> and concatenation of the genes</li>
+							<li style="font-size:90%"><strong>Phylogenetic analysis</strong> using core gene profiles</li>
+							<li style="font-size:90%">Calculation and embedding of <strong>GSI</strong> <i class="fa fa-question-circle modal-button" data-toggle="modal" data-target="#gsi"></i></li>
+						</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="infobox">
+					<h2 id="format" class="infoheader" style="padding-bottom:1rem">List of modules in the pipeline</h2>
+					<div class="responsive-table"><table class="table table-sm">
+						<thead class="thead-light">
+							<tr>
+								<th style="width:15%;">Module</th>
+								<th style="width:15%">Input</th>
+								<th style="width:15%">Output</th>
+								<th style="width:55%;">Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>profile</code></td>
+								<td class="inline-code">.fa</td>
+								<td class="inline-code">.ucg</td>
+								<td>Extracts UFCG profile from Fungal whole genome sequences</td>
+							</tr>
+							<tr>
+								<td><code>profile-rna</code></td>
+								<td class="inline-code">.fq</td>
+								<td class="inline-code">.ucg</td>
+								<td>Extracts UFCG profile from Fungal RNA-seq reads</td>
+							</tr>
+							<tr>
+								<td><code>train</code></td>
+								<td class="inline-code">.fa</td>
+								<td class="inline-code">.fa .hmm</td>
+								<td>Trains and generates sequence model of fungal markers</td>
+							</tr>
+							<tr>
+								<td><code>align</code></td>
+								<td class="inline-code">.ucg</td>
+								<td class="inline-code">.fa</td>
+								<td>Aligns genes and provides multiple sequence alignments from UFCG profiles</td>
+							</tr>
+							<tr>
+								<td><code>tree</code></td>
+								<td class="inline-code">.ucg</td>
+								<td class="inline-code">.nwk .trm</td>
+								<td>Reconstructs the phylogenetic relationship with UFCG profiles</td>
+							</tr>
+							<tr>
+								<td><code>prune</code></td>
+								<td class="inline-code">.trm</td>
+								<td class="inline-code">.nwk</td>
+								<td>Fixes UFCG tree labels or gets a single gene tree</td>
+							</tr>
+						</tbody>
+					</table></div>
+				</div>
+				<div class="infobox">
+					<h2 id="format" class="infoheader" style="padding-bottom:1rem">File formats used in the pipeline</h2>
+					<div class="responsive-table"><table class="table table-sm">
+						<thead class="thead-light">
+							<tr>
+								<th style="width:15%;">Format</th>
+								<th style="width:15%">Input</th>
+								<th style="width:15%">Output</th>
+								<th style="width:55%;">Desciption</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="inline-code">.fa .fna .fasta</td>
+								<td><code>profile</code> <code>train</code></td>
+								<td><code>train</code> <code>align</code></td>
+								<td>Standard <a href="http://en.wikipedia.org/wiki/FASTA_format" target="_blank" rel="noopener noreferrer">FASTA</a> file format for genome sequences or MSAs.</td>
+							</tr>
+							<tr>
+								<td class="inline-code">.fq .fastq</td>
+								<td><code>profile-rna</code></td>
+								<td class="inline-code">-</td>
+								<td>Standard <a href="http://en.wikipedia.org/wiki/FASTQ_format" target="_blank" rel="noopener noreferrer">FASTQ</a> file format for sequence reads</td>
+							</tr>
+							<tr>
+								<td class="inline-code">.ucg</td>
+								<td><code>align</code> <code>tree</code></td>
+								<td><code>profile</code> <code>profile-rna</code></td>
+								<td><a href="https://www.json.org/json-en.html" target="_blank" rel="noopener noreferrer">JSON</a>-formatted profile containing extracted sequences of core genes, along with the metadata of the genome. These files can also be read and edited via any text editor.
+								</td>
+							</tr>
+							<tr>
+								<td class="inline-code">.nwk</td>
+								<td class="inline-code">-</td>
+								<td><code>tree</code> <code>prune</code></td>
+								<td>Standard <a href="http://en.wikipedia.org/wiki/Newick_format" target="_blank" rel="noopener noreferrer">Newick</a> format file for phylogenetic trees.</td>
+							</tr>
+							<tr>
+								<td class="inline-code">.trm</td>
+								<td><code>prune</code></td>
+								<td><code>tree</code></td>
+								<td>JSON-formatted file containing Newick-formatted trees and the metadata of individual gene trees and concatenated UFCG tree.</td>
+							</tr>
+					</tbody>
+				</table></div>
+			</div>
+		<p>&nbsp;</p>
+		<h2 style="margin-top:2rem;margin-bottom:1rem;text-align:center;font-weight:bold">Contributors</h2>
+		<div class="row" style="text-align: center">
+			<div class="col-md-12">
+				<div class="border-bottom" style="padding-left:1rem;padding-right:1rem">
+					
+				</div>
+			</div>
+		</div>
+		<div class="row" style="text-align: center;">
+			<div class="col-md-3">
+				<div style="margin:1rem 1rem">
+					<div class="profile_image">
+						<img src="image/team/dwkim.jpg" style="width:150px">
+					</div>
+					<h5>Dongwook Kim<sup style="font-size:60%">1</sup></h5>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div style="margin:1rem 1rem">
+					<div class="profile_image">
+						<img src="image/team/cam.jpg" style="width:150px">
+					</div>
+					<h5>Cameron Gilchrist<sup style="font-size:60%">2</sup></h5>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div style="margin:1rem 1rem">
+					<div class="profile_image">
+						<img src="image/team/jon.jpg" style="width:150px">
+					</div>
+					<h5>Jon Jongsik Chun<sup style="font-size:60%">1,2,3,<a href="mailto:jchun@snu.ac.kr" target="_top" style="color:black"><i class="fa fa-envelope-o"></i></a></sup></h5>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div style="margin:1rem 1rem">
+					<div class="profile_image">
+						<img src="image/team/martin.png" style="width:150px">
+					</div>
+					<h5>Martin Steinegger<sup style="font-size:60%">1,2,3,4,<a href="mailto:martin.steinegger@snu.ac.kr" target="_top" style="color:black"><i class="fa fa-envelope-o"></i></a></sup></h5>
+				</div>
+			</div>
+		</div>
+		<div style="margin-bottom:3rem">
+			<p style="margin-top:0!important;margin-bottom:0;font-size:80%"><sup>1 </sup>Interdisciplinary Program in Bioinformatics, Seoul National University, Seoul, Korea</p>
+			<p style="margin-top:0!important;margin-bottom:0;font-size:80%"><sup>2 </sup>School of Biological Sciences, Seoul National University, Seoul, Korea</p>
+			<!--  p style="margin-top:0!important;margin-bottom:0;font-size:80%"><sup>3 </sup>CJ Biosciences, Inc., Seoul, Korea</p-->
+			<p style="margin-top:0!important;margin-bottom:0;font-size:80%"><sup>3 </sup>Institute of Molecular Biology and Genetics, Seoul National University, Seoul, Korea</p>
+			<p style="margin-top:0!important;margin-bottom:0;font-size:80%"><sup>4 </sup>Artificial Intelligence Institute, Seoul National University, Seoul, Korea</p>
+			<p style="margin-top:0!important;margin-bottom:0;font-size:80%"><sup><i class="fa fa-envelope-o"></i> </sup>Corresponding authors</p>
+    	</div>
+    	</div>
+    	<!-- Modals -->
+		<div class="modal fade" id="gsi" tabindex="-1" role="dialog" aria-labelledby="gsititle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="gsititle"><i class="fa fa-question-circle"></i> &nbsp;GSI (Gene support index)</h5>
+					</div>
+					<div class="modal-body">
+						<p style="margin-bottom:2rem">
+							GSI indicates <strong>how many gene trees support each branch</strong> in the tree inferred from the concatenated sequence.<br><br>
+							UFCG pipeline automatically calculates GSI values and create the tree that embeds the values by replacing the bootstrap values.
+						</p>
+					</div>
+					<div class="modal-footer" style="padding:.5rem">
+						<button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-bottom:0">Got it</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="core" tabindex="-1" role="dialog" aria-labelledby="coretitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="coretitle"><i class="fa fa-info-circle"></i> &nbsp;Set of core genes and the scope of a taxon</h5>
+					</div>
+					<div class="modal-body">
+						<p style="margin-bottom:2rem">
+							The number of core genes may vary, depending on the scope of a target taxon. <em>e.g.</em> If you construct a core gene set in the scope of a single species, the set may consist of up to thousands of genes.<br><br>
+							To cover the entire domain of wide taxonomic range, core genes should be restricted to those with highly conserved domains.
+						</p>
+					</div>
+					<div class="modal-footer" style="padding:.5rem">
+						<button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-bottom:0">Got it</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../ufcg.html"><img src="image/UFCG_logo.svg" width="30"> UFCG</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarsExampleDefault"
+				aria-controls="navbarsExampleDefault" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="../ufcg.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/database" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Database</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="genes.html">Genes</a>
+							<a class="dropdown-item" href="species.html">Species</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/pipeline" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pipeline</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="manual.html">Manual</a>
+							<a class="dropdown-item" href="tutorial.html">Tutorial</a>
+							<a class="dropdown-item" href="download.html">Download</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/links" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Links</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="https://github.com/endixk/ufcg" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i> GitHub</a>
+							<a class="dropdown-item" href="https://steineggerlab.com" target="_blank" rel="noopener noreferrer"><i class="fa fa-flask"></i> Steinegger Lab</a>
+							<a class="dropdown-item" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fa fa-creative-commons"></i> License</a>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="citation.html">Cite us</a></li>
+					</ul>
+			</div>
+		</div>
+	</nav>
+	<script>
+		$(document).ready(function() {
+			var pname = window.location.pathname;
+			var phead = '/ufcg';
+			if(pname.split('/').length > 2){
+				phead = phead + '/' + pname.split('/')[2];
+			}
+			if(phead == '/ufcg/genes' || phead == '/ufcg/species'){
+			 	phead = '/ufcg/database'
+			}
+			if(phead == '/ufcg/manual' || phead == '/ufcg/tutorial' || phead == '/ufcg/download'){
+			 	phead = '/ufcg/pipeline'
+			}
+			$('.navbar-nav > li > a[href="'+ phead +'"]').parent().addClass('active');
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UFCG - tutorial</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="shortcut icon" href="image/UUCG_favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+<!--link rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+	integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+	crossorigin="anonymous"-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<style>
+	.bd-sidebar{
+		border-left: 1px solid rgba(0,0,0,.1);
+		position:fixed;
+		max-width:20%;
+		top:6rem;right:0;
+	}
+	.bd-sidebar .nav > li > a {
+		display: inline-block;
+		width:15vw;
+		padding: .25rem 1.25rem;
+		@include font-size(90%);
+		color: rgba(0, 0, 0, .65);
+	}
+	.bd-sidebar .nav > li > a:hover {
+		color: rgba(0, 0, 0, .85);
+		text-decoration: none;
+		background-color: transparent;
+	}
+	.infobox {
+		margin-bottom: 0rem;
+	}
+	.infoheader{
+		padding-top: 3.5rem;
+	}
+	.highlight {
+		padding: 1rem;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		background-color: #eeeeee;
+		border-radius: 10px;
+	}
+	.plast {
+		margin-bottom:1.5rem;
+	}
+	.inline-code{
+		font-size:85%;
+		font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+	}
+	code {
+		border: solid 1px #e4e4e4;
+		padding: 4px 4px 1px;
+		background: #f5f7f8;
+		/*color: #3a3a3a;*/
+		border-radius: 3px;
+	}
+	pre {
+		margin-bottom:0;
+	}
+	p {
+		margin-top:0.5rem!important;
+		margin-bottom:0.5rem;
+	}
+	h5 {
+		margin-top:2rem;
+	}
+	hr {
+		border-color:#aaa;
+	}
+</style>
+</head>
+<body style="padding-top:0">
+	<section style="min-height:100%;padding-bottom:3rem">
+		<div class="container p1"><div class="row">
+			<div class="col-md-10">
+				<div class="infobox">
+					<h1 class="infoheader">UFCG Tutorial</h1>
+					<h6>Follow this step-by-step guide with a small sample dataset to learn how to use UFCG pipeline.</h6>
+				</div>
+				<div class="infobox">
+					<h1 id="sample" class="infoheader">Sample dataset</h1><hr>
+					<h5 style="margin-top:1rem!important">Sample species</h5>
+					<p class="plast">Six representative fungal species and their whole genome assemblies are prepared as a sample dataset.</p>
+					<div class="responsive-table"><table class="table table-sm" style="max-width:80%;margin-left:auto;margin-right:auto">
+						<thead class="thead-light">
+							<tr>
+								<th scope="col">Species</th>
+								<th scpoe="col">Phylum</th>
+								<th scope="col">Accession</th>
+								<th scope="col">Link</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><em style="font-family:serif;font-weight:bold">Cryptococcus neoformans</em> <span style="font-size:80%">JEC21</span></td>
+								<td>Basidiomycota</td>
+								<td><pre>GCA_000091045.1</pre></td>
+								<td><a href="https://www.ncbi.nlm.nih.gov/assembly/GCA_000091045.1/" target="_blank" rel="noopener noreferer">NCBI <i class="fa fa-external-link"></i></a></td>
+							</tr>
+							<tr>
+								<td><em style="font-family:serif;font-weight:bold">Saccharomyces cerevisiae</em> <span style="font-size:80%">S288C</span></td>
+								<td>Ascomycota</td>
+								<td><pre>GCA_000146045.2</pre></td>
+								<td><a href="https://www.ncbi.nlm.nih.gov/assembly/GCA_000146045.2/" target="_blank" rel="noopener noreferer">NCBI <i class="fa fa-external-link"></i></a></td>
+							</tr>
+							<tr>
+								<td><em style="font-family:serif;font-weight:bold">Aspergillus nidulans</em> <span style="font-size:80%">FGSC A4</span></td>
+								<td>Ascomycota</td>
+								<td><pre>GCA_000149205.2</pre></td>
+								<td><a href="https://www.ncbi.nlm.nih.gov/assembly/GCA_000149205.2/" target="_blank" rel="noopener noreferer">NCBI <i class="fa fa-external-link"></i></a></td>
+							</tr>
+							<tr>
+								<td><em style="font-family:serif;font-weight:bold">Spizellomyces punctatus</em> <span style="font-size:80%">DAOM BR117</span></td>
+								<td>Chytridiomycota</td>
+								<td><pre>GCA_000182565.2</pre></td>
+								<td><a href="https://www.ncbi.nlm.nih.gov/assembly/GCA_000182565.2/" target="_blank" rel="noopener noreferer">NCBI <i class="fa fa-external-link"></i></a></td>
+							</tr>
+							<tr>
+								<td><em style="font-family:serif;font-weight:bold">Trametes versicolor</em> <span style="font-size:80%">FP-101664 SS1</span></td>
+								<td>Basidiomycota</td>
+								<td><pre>GCA_000271585.1</pre></td>
+								<td><a href="https://www.ncbi.nlm.nih.gov/assembly/GCA_000271585.1/" target="_blank" rel="noopener noreferer">NCBI <i class="fa fa-external-link"></i></a></td>
+							</tr>
+							<tr>
+								<td><em style="font-family:serif;font-weight:bold">Rhizopus oryzae</em> <span style="font-size:80%">99-892</span></td>
+								<td>Mucoromycota</td>
+								<td><pre>GCA_000697725.1</pre></td>
+								<td><a href="https://www.ncbi.nlm.nih.gov/assembly/GCA_000697725.1/" target="_blank" rel="noopener noreferer">NCBI <i class="fa fa-external-link"></i></a></td>
+							</tr>
+						</tbody>
+					</table></div>
+					<h5>Sample files</h5>
+					<p>After unzipping the compressed file, you can find all the required files from <strong class="inline-code">sample/</strong> directory. The directory contains following components.</p>
+					<ul>
+						<li><strong class="inline-code">seq/</strong> : Directory with the <strong>whole genome assemblies</strong> of the species above</li>
+						<li><strong class="inline-code">out/</strong> : Directory containing previously extracted <strong>core gene profiles</strong></li>
+						<li><strong class="inline-code">tree/</strong> : Directory to store result phylogenetic trees</li>
+						<li><strong class="inline-code">meta_full.tsv</strong> : <strong>Metadata file</strong> of the species with full information</li>
+						<li><strong class="inline-code">meta_simple.tsv</strong> : <strong>Metadata file</strong> of the species with minimum information</li>
+					</ul>
+				</div>
+				<div class="infobox">
+					<h1 id="profile" class="infoheader">Profile core gene <span class="inline-code" style="font-size:60%;font-weight:normal">UFCG profile</span></h1><hr>
+					<p>By following this guide, you will</p>
+					<ul>
+						<li><strong>extract core genes</strong> from the genomes in directory <span class="inline-code">/sample/seq/</span>,</li>
+						<li>and <strong>save their profile</strong> on <span class="inline-code">/sample/out/</span> directory.</li>
+					</ul>
+					<h5>Run <span class="inline-code">profile</span> module</h5>
+					<p>Launch <span class="inline-code">profile</span> module in interactive mode by entering following command on your terminal.</p>
+					<figure class="highlight">
+						<pre><span style="color:#888888">$</span> <strong>cd /path/to/UFCG/</strong></pre>
+						<pre><span style="color:#888888">$</span> <strong>java -jar UFCG.jar profile -u</strong></pre>
+					</figure>
+					<p>The program will tell you to enter the input file or directory. We want to use the entire directory as an input, therefore you should enter the path where the genomes are lying.</p>
+					<figure class="highlight">
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Enter the file or directory ... (--input) : </span><strong>sample/seq/</strong></pre>
+					</figure>
+					<p>Enter the output directory in the same way.</p>
+					<figure class="highlight">
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Enter the directory ... (--output) : </span><strong>sample/out/</strong></pre>
+					</figure>
+					<p>We want to extract protein markers from the sequences. Type 'PRO' to continue.</p>
+					<figure class="highlight">
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Enter the set of genes ... (--set) : </span><strong>PRO</strong></pre>
+					</figure>
+					<p>Output files are already in the directory we designated. Type 'y' to allow the pipeline to overwrite them.</p>
+					<figure class="highlight">
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Result files exist ... (--force) (y/n) : </span><strong>y</strong></pre>
+					</figure>
+					<p>We do not want to maintain temporary files. Type 'n'.</p>
+					<figure class="highlight">
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Maintain temporarily created files? (y/n) : </span><strong>n</strong></pre>
+					</figure>
+					<p>Now the pipeline will automatically solve dependency and inform you to enter the path of the binaries remaining unsolved.<br>After then, the program will ask you to decide the number of CPU threads to use. Allocate appropriate amount of threads considering the hardware specification and your affordable time. In here, 10 threads are allocated as an example.</p>
+					<figure class="highlight">
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Solving dependencies...</span></pre>
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Enter the number ... (--thread, default = 1) : </span><strong>10</strong></pre>
+					</figure>
+					<p>Then the pipeline will ask for the metadata. In this tutorial, we will use the prepared table with complete information.</p>
+					<figure class="highlight">
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Provide metadata ... (y/n) : </span><strong>y</strong></pre>
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Enter the file ... (--metadata) : </span><strong>sample/meta_full.tsv</strong></pre>
+					</figure>
+					<p>Finally, after refusing to configurate the advanced options, the pipeline will display the single-line command to run, and ask for your final confirmation. Enter 'y' to launch the pipeline.</p>
+					<figure class="highlight">
+						<pre style="white-space:pre-wrap;word-wrap:break-word"><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Follwing command will be executed : </span><strong style="color:#fdb900">java -jar UFCG.jar profile --input sample/seq/ --output sample/out/ --force 1 --thread 10 --metadata sample/meta_full.tsv</strong></pre>
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Confirm? Enter y (confirm) / n (reset) / x (exit) : </span><strong>y</strong></pre>
+					</figure>
+					<p><strong>Tip.</strong> If you copy and save the command, you can skip the entire interactive process next time.</p>
+					<hr>
+					<h5>Extraction process</h5>
+					<p>By launching the pipeline, the process will begin by reading the input files in and preparing queries to process.<br>After the preparation finishes, you will see the visualized progress bar such as following.</p>
+					<figure class="highlight">
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Reading input data...</span></pre>
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Queries prepared. 6 genome sequences identified.</span></pre>
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">QUERY 1/6 : </span><span style="color:#fdb900">GCA_000091045.1 </span><span style="color:#6633ff">(Cryptococcus neoformans)</span></pre>
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">PROGRESS : [<span style="color:#666666">XXXXXXXXXX...XXX</span>]</span></pre>
+					</figure>
+					<p>Alphabets in the progress bar, which dynamically change during the extraction process, indicate the current status of the genes from the UFCG set as following.</p>
+					<table class="table table-sm" style="max-width:80%;margin-left:auto;margin-right:auto">
+						<thead>
+							<th scope="col" colspan="2" style="width:30%">Ready</th>
+							<th scope="col" colspan="2" style="width:35%">Processing</th>
+							<th scope="col" colspan="2" style="width:35%">Processed</th>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col">Sign</th>
+								<th scope="col">Status</th>
+								<th scope="col">Sign</th>
+								<th scope="col">Status</th>
+								<th scope="col">Sign</th>
+								<th scope="col">Status</th>
+							</tr>
+							<tr>
+								<td class="inline-code"><span style="font-size:100%;padding:2px 2px;background-color:#000000;color:#9e9e9e">X</span></td>
+								<td>Ready</td>
+								<td class="inline-code"><span style="font-size:100%;padding:2px 2px;background-color:#000000;color:#ff00ff">S</span></td>
+								<td>Searching</td>
+								<td class="inline-code"><span style="font-size:100%;padding:2px 2px;background-color:#000000;color:#009900">O</span></td>
+								<td>Single copy</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td class="inline-code"><span style="font-size:100%;padding:2px 2px;background-color:#000000;color:#00ffff">P</span></td>
+								<td>Predicting</td>
+								<td class="inline-code"><span style="font-size:100%;padding:2px 2px;background-color:#000000;color:#00ff00">O</span></td>
+								<td>Multiple copy</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td class="inline-code"><span style="font-size:100%;padding:2px 2px;background-color:#000000;color:#ff5555">V</span></td>
+								<td>Validating</td>
+								<td class="inline-code"><span style="font-size:100%;padding:2px 2px;background-color:#000000;color:#ff0000">X</span></td>
+								<td>Not found</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>As the extraction finishes, the program will report the result by the count of genes based on their existence, and write the <span class="inline-code">.ucg</span> file on the output folder.</p>
+					<figure class="highlight">
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">RESULT : [Single: <span style="color:#009900">25</span> ; Duplicated : <span style="color:#00dd00">40</span> ; Missing : <span style="color:#ff0000">6</span>]</span></pre>
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Writing results on : </span><span style="color:#fdb900">sample/out/GCA_000091045.1.ucg</span></pre>
+					</figure>
+					<hr>
+					<h5>Check results</h5>
+					<p>The pipeline will automatically terminate as it finishes extracting the gene profiles from all six queries. You can check the result files lying in the output directory by entering the following command.</p>
+					<figure class="highlight">
+						<pre><span style="color:#888888">$</span> <strong>ls -1 sample/out</strong><hr>GCA_000091045.1.ucg<br>GCA_000146045.2.ucg<br>GCA_000149205.2.ucg<br>GCA_000182565.2.ucg<br>GCA_000271585.1.ucg<br>GCA_000697725.1.ucg<br></pre>
+					</figure>
+					<div class="callout callout-primary">
+						<h6>Well done!</h6>
+						<p>If you have followed the guide through here, you have successfully extracted the core gene profiles from the genome assemblies. You are now ready to proceed.</p>
+					</div>
+				</div>
+				<div class="infobox">
+					<h1 id="tree" class="infoheader">Infer phylogenetic tree <span class="inline-code" style="font-size:60%;font-weight:normal">UFCG tree</span></h1><hr>
+					<p>By following this guide, you will</p>
+					<ul>
+						<li><strong>infer phylogenetic relationship</strong> of the sample species using previously extracted core genes,</li>
+						<li><strong>draw their gene trees</strong> on <span class="inline-code">sample/tree/tutorial/</span> directory,</li>
+						<li>and learn how to <strong>replace the labels</strong> of tree with desired information.</li>
+					</ul>
+					<h5>Run <span class="inline-code">tree</span> module</h5>
+					<p>Launch the module by entering the directory with profiles as an input, labeling them with unique IDs. Since we do not want to perform precise phylogeny here, we will use <code>FastTree</code>.</p>
+					<figure class="highlight">
+						<pre style="white-space:pre-wrap;word-wrap:break-word"><span style="color:#888888">$</span> <strong>java -jar UFCG.jar tree -i sample/out/ -l uid -a protein -o sample/tree/ -n tutorial -t 10 -p fasttree</strong></pre>
+					</figure>
+					<p>The pipeline will automatically detect <span class="inline-code">.ucg</span> files from <span class="inline-code">sample/out/</span> directory, perform multiple alignment on each core gene, and reconstruct the phylogenetic tree along with the single gene trees on <span class="inline-code">sample/tree/tutorial/</span> directory.</p>
+					<hr>
+					<h5>Check results</h5>
+					<p>Run following command to check the contents of the result directory.</p>
+					<figure class="highlight">
+						<pre><span style="color:#888888">$</span> <strong>ls -X1 sample/tree/tutorial/</strong><hr><strong style="color:#0000cc">align</strong><br><strong style="color:#0000cc">misc</strong><br><strong style="color:#0000cc">tree</strong><br>aligned_concatenated.fasta<br>tutorial.log<br>concatenated.nwk<br>concatenated_gsi_65.nwk<br>tutorial.trm</pre>
+					</figure>
+					<ul>
+						<li><strong class="inline-code" style="color:#0000cc">align</strong> directory contains FASTA formatted <strong>single gene alignments</strong> of 68 core genes.</li>
+						<li><strong class="inline-code" style="color:#0000cc">tree</strong> directory contains Newick formatted <strong>single gene trees</strong>.</li>
+					</ul>
+					<p>Reconstructed phylogenetic tree is written in <strong class="inline-code">concatenated.nwk</strong>. Printing the Newick tree in a plain text will display its content such as following (unique ID number may differ).</p>
+					<figure class="highlight">
+						<pre><span style="color:#888888">$</span> <strong>cat sample/tree/tutorial/concatenated.nwk</strong><hr>(4263952451731213441:0.243092227,5273552662905313943:0.217864271,<br>((5766125292192400323:0.322140081,6282644843417492679:0.321038175)<br>1.000:0.110831127,(5340792663224739640:0.292152921,7745401375688138845:<br>0.249360935)1.000:0.088541733)1.000:0.054581755);</pre>
+					</figure>
+					<p>Oops! Since we labelled the leaves with their unique IDs, this tree does not inform us the actual taxonomic relationship in a glance. We have to replace their label with proper metadata to solve this problem.</p>
+					<hr>
+					<h5>Replace labels with taxonomic information <span class="inline-code" style="font-size:60%;font-weight:normal">UFCG prune</span></h5>
+					<p>Launch prune module with following command, indicating it to replace the labels of <strong>UFCG tree</strong> with <strong> taxon names and strain names</strong>.</p>
+					<figure class="highlight">
+						<pre style="white-space:pre-wrap;word-wrap:break-word"><span style="color:#888888">$</span> <strong>java -jar UFCG.jar prune -i sample/tree/tutorial/tutorial.trm -g UFCG -l taxon,strain</strong></pre>
+					</figure>
+					<p>This process will create the replaced UFCG tree as <strong class="inline-code">replaced.UFCG.nwk</strong> in current directory. Move it to our tutorial directory and check its content.</p>
+					<figure class="highlight">
+						<pre><span style="color:#888888">$</span> <strong>mv replaced.UFCG.nwk sample/tree/tutorial/replaced.nwk</strong></pre>
+						<pre><span style="color:#888888">$</span> <strong>cat sample/tree/tutorial/replaced.nwk</strong><hr>(Spizellomyces_punctatus|DAOM_BR117:0.243092227,Rhizopus_oryzae|99-892:0.217864271,<br>((Aspergillus_nidulans|FGSC_A4:0.322140081,Saccharomyces_cerevisiae|S288C:0.321038175)<br>1.000:0.110831127,(Trametes_versicolor|FP-101664_SS1:0.292152921,Cryptococcus_neoformans<br>|JEC21:0.249360935)1.000:0.088541733)1.000:0.054581755);</pre>
+					</figure>
+					<div class="callout callout-primary">
+						<h6>Well done!</h6>
+						<p>If you have followed the guide through here, you have successfully reconstructed the phylogenetic tree with core genes labelled with proper taxonomic information. You are now ready to proceed.</p>
+					</div>
+				</div>
+				<div class="infobox">
+					<h1 id="mega" class="infoheader">Visualize result <span style="font-size:60%;font-weight:normal">with MEGA X <a href="https://www.megasoftware.net/home" target="_blank" rel="noopener noreferer"><img src="image/megax.png" style="width:20px;padding-bottom:5px"></a></span></h1><hr>
+					<p>MEGA X, provided by MEGA software, is used as a visualization toolkit in this tutorial. Use this external link to download the software. <a href="https://www.megasoftware.net/home" target="_blank" rel="noopener noreferer"><i class="fa fa-external-link"></i></a></p>
+					<p>Launch the MEGA X application and load up the replaced tree with <strong>Analysis - User Tree - Display Newick Trees</strong> menu. The tree will be visualized such as following image.</p>
+					<img src="image/megax_tutorial_init.png" style="max-width:100%;padding:1rem 5%">
+					<p>By rearranging the subtrees and labeling them with phyla, the tree can be modified like following.</p>
+					<img src="image/megax_tutorial_arr.png" style="max-width:100%;padding:1rem 5%">
+					<p>Considering <em style="font-family:serif;font-weight:bold">Spizellomyces punctatus</em> as an outgroup species, you can easily see that the classification of remaining species are intact, corresponding to the known phylogenetic relationship of fungal phyla.</p>
+					<div class="callout callout-primary">
+						<h6>Nicely done!</h6>
+						<p>This is the end of the tutorial. You are now ready to reconstruct the phylogenetic relationship with your own fungal genome assemblies. Feel free to email us if you have any additional questions to ask, want some technical difficulties to be solved, or wish to give us some kind suggestions for improvement. <a href="mailto:endix1029@gmail.com" target="_top" style="color:black"><i class="fa fa-envelope-o"></i></a></p>
+					</div>
+				</div>
+				<div id="bottom" class="infoheader"></div>
+			</div>
+		</div></div>
+		<div class="bd-sidebar hidden-mobile">
+			<nav id="bd-docs-nav">
+				<ul class="nav bd-sidenav">
+					<li><a href="tutorial.html#sample"><strong>Dataset</strong></a></li>
+					<li><a href="tutorial.html#profile"><span class="inline-code">profile</span> module</a></li>
+					<li><a href="tutorial.html#tree"><span class="inline-code">tree</span> module</span></a></li>
+					<li><a href="tutorial.html#mega"><strong>Visualization</strong></a></li>
+					<li><a href="tutorial.html#top" style="font-size:90%">Back to top</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../ufcg.html"><img src="image/UFCG_logo.svg" width="30"> UFCG</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarsExampleDefault"
+				aria-controls="navbarsExampleDefault" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="../ufcg.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/database" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Database</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="genes.html">Genes</a>
+							<a class="dropdown-item" href="species.html">Species</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/pipeline" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pipeline</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="manual.html">Manual</a>
+							<a class="dropdown-item" href="tutorial.html">Tutorial</a>
+							<a class="dropdown-item" href="download.html">Download</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/links" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Links</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="https://github.com/endixk/ufcg" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i> GitHub</a>
+							<a class="dropdown-item" href="https://steineggerlab.com" target="_blank" rel="noopener noreferrer"><i class="fa fa-flask"></i> Steinegger Lab</a>
+							<a class="dropdown-item" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fa fa-creative-commons"></i> License</a>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="citation.html">Cite us</a></li>
+					</ul>
+			</div>
+		</div>
+	</nav>
+	<script>
+		$(document).ready(function() {
+			var pname = window.location.pathname;
+			var phead = '/ufcg';
+			if(pname.split('/').length > 2){
+				phead = phead + '/' + pname.split('/')[2];
+			}
+			if(phead == '/ufcg/genes' || phead == '/ufcg/species'){
+			 	phead = '/ufcg/database'
+			}
+			if(phead == '/ufcg/manual' || phead == '/ufcg/tutorial' || phead == '/ufcg/download'){
+			 	phead = '/ufcg/pipeline'
+			}
+			$('.navbar-nav > li > a[href="'+ phead +'"]').parent().addClass('active');
+		})
+	</script>
+</body>
+</html>

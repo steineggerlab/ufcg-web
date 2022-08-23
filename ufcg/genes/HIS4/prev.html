@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UFCG - HEM12</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="shortcut icon" href="../../image/UUCG_favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+<!--link rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+	integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+	crossorigin="anonymous"-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<style>
+	.infobox {
+		margin-bottom: 0rem;
+	}
+	.infoheader{
+		padding-top: 2rem;
+	}
+	.entry-header{
+		grid-column:1;
+		border-right:2px solid #65c8d0;
+		padding-right:1rem;
+		margin-bottom:.5rem;
+	}
+	.entry-content{
+		grid-column:2;
+		padding-left:1rem;
+		margin-bottom:.5rem;
+		font-weight:200;
+		word-break:break-word;
+	}
+	.inline-code{
+		font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+	}
+	.btn-elink{
+		margin-bottom:3px;
+		padding:2px 5px;
+		height:80%;
+		line-height:0.9;
+	}
+	.modal-button:hover{
+		color:gray;
+	}
+</style>
+<script src="../../js/msa.min.gz.js"></script>
+</head>
+<body>
+	<section style="min-height:100%;padding-bottom:3rem" class="body_section">
+		<div class="container">
+			<div class="infobox">
+				<h2 id="overview" class="infoheader" style="border-bottom:1px solid rgba(0,0,0,.1);margin-bottom:.5rem">
+					<img src="../../image/UFCG_logo.svg" style="width:2rem;margin-bottom:.5rem">
+					<span>UFCG #18 - HEM12</span>
+				</h2>
+				<div style="margin-bottom:1rem">
+					<a class="btn btn-sm btn-outline-secondary btn-elink" href="../HEM12/prev.html"><i class="fa fa-arrow-left"></i> Previous</a>
+					<a class="btn btn-sm btn-outline-secondary btn-elink" href="../HEM12/next.html"><i class="fa fa-arrow-right"></i> Next</a>
+					<a class="btn btn-sm btn-outline-secondary btn-elink" href="../index.html#list"><i class="fa fa-undo"></i> Return</a>
+				</div>
+				<div style="display:inline-grid">
+					<h5 class="entry-header">Name</h5>
+					<h5 class="entry-content">HEM12</h5>
+					<h5 class="entry-header">Function</h5>
+					<h5 class="entry-content">
+						<span style="margin-right:1rem;">Uroporphyrinogen decarboxylase</span>
+						<a class="btn btn-sm btn-outline-danger btn-elink" style="margin-right:.5rem;height:auto" href="https://www.yeastgenome.org/locus/YDR047W" target="_blank" rel="noopener noreferrer">SGD</a>
+						<a class="btn btn-sm btn-outline-info btn-elink" style="height:auto" href="https://www.uniprot.org/uniprot/P32347" target="_blank" rel="noopener noreferrer">UniProt</a>
+					</h5>
+					<h5 class="entry-header">Length</h5>
+					<h5 class="entry-content"><span>362</span> (Yeast)</h5>
+					<h5 class="entry-header">OG <i class="fa fa-info-circle modal-button" style="font-size:80%" data-toggle="modal" data-target="#og"></i></h5>
+					<h5 class="entry-content">
+						<span style="margin-right:1rem">KOG2872</span>
+						<a class="btn btn-sm btn-outline-dark btn-elink" style="height:auto" href="https://www.ncbi.nlm.nih.gov/Structure/cdd/KOG2872" target="_blank" rel="noopener noreferrer">CDD</a>
+					</h5>
+					
+				</div>
+			</div>
+			<div class="infobox">
+				<h3 id="structure" class="infoheader" style="margin-bottom:1rem">Sequence <i class="fa fa-info-circle modal-button" style="font-size:60%" data-toggle="modal" data-target="#align"></i></h3>
+				<h6>Download resources &nbsp;<a class="btn btn-sm btn-outline-primary btn-elink" href="http://147.47.218.69:9000/ufcg/fa/HEM12.fasta">FASTA</a> <a class="btn btn-sm btn-outline-primary btn-elink" href="http://147.47.218.69:9000/ufcg/msa/HEM12_aligned.fasta">MSA</a> <a class="btn btn-sm btn-outline-primary btn-elink" href="http://147.47.218.69:9000/ufcg/hmm/HEM12.hmm">HMM</a></h6>
+				<h6>Alignment <i class="fa fa-question-circle modal-button" data-toggle="tooltip" data-placement="right" data-html="true" title="Asc; Ascomycota<br>Bas; Basidiomycota<br>Bla; Blastocladiomycota<br>Bol; Basidiobolomycota<br>Chy; Chytridiomycota<br>Ent; Entomophthoromycota<br>Glo; Glomeromycota<br>Kic; Kickxellomycota<br>Mon; Monoblepharomycota<br>Muc; Mucoromycota<br>Roz; Rozellomycota<br>Zoo; Zoopagomycota"></i></h6>
+				<div id="alignment"></div>
+				<h6 style="font-size:80%;padding-bottom:1rem">Visualized with BioJS - MSAViewer</h6>
+			</div>
+			<div id="bottom" class="infoheader"></div>
+			<!-- Modals -->
+			<div class="modal fade" id="og" tabindex="-1" role="dialog" aria-labelledby="ogtitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="ogtitle"><i class="fa fa-question-circle"></i> &nbsp;OG (Orthologous Groups)</h5>
+						</div>
+						<div class="modal-body">
+							<p style="margin-bottom:2rem">
+								<strong>OG (Orthologous Groups)</strong> were defined based on the combined information between eggNOG annotations and NCBI KOG database.<br><br>NCBI provides a structured information of COGs and Eukaryotic clusters (KOGs) in <strong>Conserved Domain Database (CDD)</strong>. <a class="fa fa-external-link" href="https://www.ncbi.nlm.nih.gov/Structure/cdd/cdd.shtml" target="_blank" rel="noopener noreferrer"></a>
+							</p>
+						</div>
+						<div class="modal-footer" style="padding:.5rem">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-bottom:0">Got it</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="align" tabindex="-1" role="dialog" aria-labelledby="aligntitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="aligntitle"><i class="fa fa-info-circle"></i> &nbsp;Sequence alignment</h5>
+						</div>
+						<div class="modal-body">
+							<p>
+								Protein sequence alignment is constructed from the protein sequences of <strong>75 representative fungal species</strong>. Sequences are visualized with <strong>MSAViewer</strong> plugin, using <strong>Clustal2 color format</strong>.<br><br>
+								Note that the sequences are <strong>not complete</strong>, since <strong>gap-rich columns with 0.5 threshold</strong> from the alignment were hidden before visualization.
+							</p>
+						</div>
+						<div class="modal-footer" style="padding:.5rem">
+							<button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-bottom:0">Got it</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var m = msa({
+			//	bootstrapMenu:true,
+				el:document.getElementById("alignment"),
+				colorscheme:{
+					scheme:"clustal2"
+				},
+				vis:{
+					conserv:false,
+					labelId:false,
+					seqlogo:true
+				},
+				zoomer:{
+					alignmentHeight:400,
+					labelNameLength:150,
+					labelFontsize: 8
+				}
+			});
+			var name = "HEM12"
+			msa.io.fasta.read("/ufcg/vis/" + name + "_vis.msa", function(err, seqs){
+				m.seqs.reset(seqs);
+				m.seqs.comparator = "name";
+				m.seqs.sort();
+				//for (var r = msa.model.getMaxLength(), i = [], o = m.g.stats.scale(m.g.stats.conservation()), s = r - 1, u = 0; u <= s; u++) o[u] < n && i.push(u);
+				//m.g.columns.set("hidden", i)
+				m.render();
+			});
+		</script>
+		<script>
+			$(function () {
+				$('[data-toggle="tooltip"]').tooltip()
+			});
+		</script>
+	</section>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../../../ufcg.html"><img src="../../image/UFCG_logo.svg" width="30"> UFCG</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarsExampleDefault"
+				aria-controls="navbarsExampleDefault" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="../../../ufcg.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="../../about.html">About</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/database" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Database</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="../../genes.html">Genes</a>
+							<a class="dropdown-item" href="../../species.html">Species</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/pipeline" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pipeline</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="../../manual.html">Manual</a>
+							<a class="dropdown-item" href="../../tutorial.html">Tutorial</a>
+							<a class="dropdown-item" href="../../download.html">Download</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/links" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Links</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="https://github.com/endixk/ufcg" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i> GitHub</a>
+							<a class="dropdown-item" href="https://steineggerlab.com" target="_blank" rel="noopener noreferrer"><i class="fa fa-flask"></i> Steinegger Lab</a>
+							<a class="dropdown-item" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fa fa-creative-commons"></i> License</a>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="../../citation.html">Cite us</a></li>
+					</ul>
+			</div>
+		</div>
+	</nav>
+	<script>
+		$(document).ready(function() {
+			var pname = window.location.pathname;
+			var phead = '/ufcg';
+			if(pname.split('/').length > 2){
+				phead = phead + '/' + pname.split('/')[2];
+			}
+			if(phead == '/ufcg/genes' || phead == '/ufcg/species'){
+			 	phead = '/ufcg/database'
+			}
+			if(phead == '/ufcg/manual' || phead == '/ufcg/tutorial' || phead == '/ufcg/download'){
+			 	phead = '/ufcg/pipeline'
+			}
+			$('.navbar-nav > li > a[href="'+ phead +'"]').parent().addClass('active');
+		})
+	</script>
+</body>
+</html>

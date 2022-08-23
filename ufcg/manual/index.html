@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UFCG - Manual</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="shortcut icon" href="../image/UUCG_favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+<!--link rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+	integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+	crossorigin="anonymous"-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<style>
+	.bd-sidebar{
+		border-left: 1px solid rgba(0,0,0,.1);
+		position:fixed;
+		max-width:20%;
+		top:6rem;right:0;
+	}
+	.bd-sidebar .nav > li > a {
+		display: inline-block;
+		width:15vw;
+		padding: .25rem 1.25rem;
+		@include font-size(90%);
+		color: rgba(0, 0, 0, .65);
+	}
+	.bd-sidebar .nav > li > a:hover {
+		color: rgba(0, 0, 0, .85);
+		text-decoration: none;
+		background-color: transparent;
+	}
+/*	.bd-sidebar .nav > .active > a,
+	.bd-sidebar .nav > .active:hover > a {
+		font-weight: 600;
+		color: rgba(0, 0, 0, .85);
+		background-color: transparent;
+	}*/
+	.infobox {
+		margin-bottom: 0rem;
+	}
+	.infoheader{
+		padding-top: 3.5rem;
+	}
+	.highlight {
+		padding: 1rem;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		background-color: #eeeeee;
+		border-radius: 10px;
+	}
+	p {
+		margin-top:0.5rem!important;
+		margin-bottom:0.5rem;
+	}
+	.plast {
+		margin-bottom:1.5rem!important;
+	}
+	code {
+		border: solid 1px #e4e4e4;
+		padding: 4px 4px 1px;
+		background: #f5f7f8;
+		/*color: #3a3a3a;*/
+		border-radius: 3px;
+	}
+	pre {
+		margin-bottom:0;
+	}
+	.inline-code{
+		font-size:85%;
+		font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+	}
+	table > thead > tr > th, table > tbody > tr > th, table > tbody > tr > td{
+		padding:.3rem 1rem !important;
+	}
+	.break {
+		word-break: break-all;
+	}
+	.modal-button:hover{
+		color:gray;
+	}
+</style>
+<script>
+    var version = "v1.0";
+</script>
+</head>
+<body style="padding-top:0">
+	<section style="min-height:100%;padding-bottom:3rem">
+		<div class="container p1">
+			<div class="row">
+				<div class="col-md-10">
+					<div class="infobox">
+						<h1 class="infoheader">UFCG Pipeline - Manual</h1>
+						<h5>Current version: <span class="inline-code"><script>document.write(version);</script></span></h5>
+					</div>
+					<div class="infobox">
+						<h2 id="start" class="infoheader">Quick start</h2><hr>
+						<h4>Conda</h4>
+						<figure class="highlight">
+						<pre style="margin-bottom: 0">conda create -n ufcg -c bioconda -c conda-forge openjdk=8 augustus mmseqs2 mafft iqtree<br>conda activate ufcg<br>wget -O UFCG.zip https://github.com/endixk/ufcg/releases/latest/download/UFCG.zip<br>unzip UFCG.zip && cd UFCG<br>java -jar UFCG.jar</pre>
+						</figure>
+						<hr>
+						<h4>Docker</h4>
+						<figure class="highlight">
+						<pre style="margin-bottom: 0">docker pull endix1029/ufcg:latest<br>docker run -it endix1029/ufcg:latest<br>cd UFCG<br>java -jar UFCG.jar</pre>
+						</figure>
+						<hr>
+						<h4>Manual installation</h4>
+						<h5>Download <a href="../download.html" target="_blank"><i class="fa fa-link" style="font-size:70%"></i></a></h5>
+						<p class="plast">Download and unzip the compressed UFCG pipeline from the download page, or use this direct link. <a href="https://github.com/endixk/ufcg/releases/latest/download/UFCG.zip"><i class="fa fa-file-archive-o"></i></a><br>UFCG runs with the command-line interface on UNIX based operating systems. (Linux, macOS etc.)</p>
+						<h5>Requirements</h5>
+						<p>Before installation, please make sure that the required programs are properly installed. Links for the installation of the requirements are listed in the download page.</p>
+						<ul>
+							<li>Entire pipeline is written in Java language, thereby you should install and establish <strong>Java Runtime Environment</strong> with a version higher than 8 to run the pipeline.</li>
+							<li><strong>AUGUSTUS</strong> and <strong>MMSeqs2</strong> are required for running <code>profile</code> module.
+								<!-- Modal -->
+								<i class="fa fa-info-circle modal-button" data-toggle="modal" data-target="#uucgfreq"></i>
+								<div class="modal fade" id="uucgfreq" tabindex="-1" role="dialog" aria-labelledby="uucgfreqtitle" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="uucgfreqtitle"><i class="fa fa-info-circle"></i> &nbsp;Requirements - <code>profile</code></h5>
+											</div>
+											<div class="modal-body">
+												<p>To run <code>profile</code> module, following binaries should run properly on your system: <code>augustus</code> <code>fastBlockSearch</code> <code>mmseqs</code></p>
+												<br>
+												<p>You can either record the path of these binaries on <code>$PATH</code>, or provide them as arguments of <strong class="inline-code">UFCG.jar</strong> program.</p>
+											</div>
+											<div class="modal-footer" style="padding:.5rem">
+												<button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-bottom:0">Got it</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Especially, following binaries should run properly on your system: <code>augustus</code>, <code>fastBlockSearch</code> and <code>hmmsearch</code>. You can either record the path of these binaries on <code>$PATH</code>, or provide them as arguments.!-->
+							</li>
+							<li><strong>MAFFT</strong> and <strong>IQ-TREE</strong> are required for running <code>tree</code> module.
+								<!-- Modal -->
+								<i class="fa fa-info-circle modal-button" data-toggle="modal" data-target="#uucgtreereq"></i>
+								<div class="modal fade" id="uucgtreereq" tabindex="-1" role="dialog" aria-labelledby="uucgtreereqtitle" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="uucgtreereqtitle"><i class="fa fa-info-circle"></i> &nbsp;Requirements - <code>tree</code></h5>
+											</div>
+											<div class="modal-body">
+												<p>To run <code>tree</code> module, following binaries should run properly on your system: <code>mafft</code> <code>iqtree</code></p>
+												<br>
+												<p>You should record the path of these binaries on a simple text file named <strong class="inline-code">tree.cfg</strong> such as:</p>
+												<figure class="highlight">
+													<pre style="margin-bottom:0">mafft=/path/to/mafft<br>iqtree=/path/to/iqtree</pre>
+												</figure>
+												<p>You can also use <code>raxml</code> or <code>fasttree</code> as a tree-builder; but you should specify the paths of these programs as well if you want to use them.</p>
+											</div>
+											<div class="modal-footer" style="padding:.5rem">
+												<button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-bottom:0">Got it</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--You should record their path on the text file named <pre style="display:inline"><strong>programPath</strong></pre>. (See <strong>Contents-Pipelines</strong> section)!-->
+						</ul> 
+					</div>
+					<div class="infobox">
+						<h2 id="content" class="infoheader">Contents</h2><hr>
+						<h4>Directory structure</h4>
+						<p>By unzipping the file, a directory with following structure will be created.</p>
+						<figure class="highlight">
+							<pre style="margin-bottom: 0"><i class="fa fa-folder-open"></i><strong> UFCG/</strong><br>┣━ <i class="fa fa-folder-open"></i><strong> config/</strong><br>┃ ┣━ <i class="fa fa-folder-open"></i><strong> seq/</strong><br>┃ ┣━ <i class="fa fa-folder-open"></i><strong> model/</strong><br>┃ ┣━ <strong>ppx.cfg</strong><br>┃ ┗━ <strong>tree.cfg</strong><br>┣━ <i class="fa fa-folder-open"></i><strong> sample/</strong><br>┃ ┣━ <i class="fa fa-folder-open"></i><strong> seq/</strong><br>┃ ┣━ <i class="fa fa-folder-open"></i><strong> out/</strong><br>┃ ┣━ <i class="fa fa-folder-open"></i><strong> tree/</strong><br>┃ ┣━ <strong style="color:#0000cc">meta_full.tsv</strong><br>┃ ┗━ <strong style="color:#0000cc">meta_simple.tsv</strong><br>┗━ <strong style="color:#009900">UFCG.jar</strong></pre>
+						</figure>
+						<p class="plast"></p>
+						<h4>Config files</h4>
+						<ul>
+							<li><strong class="inline-code">seq/</strong> contains reference protein/nucleotide sequences of pre-defined genetic markers.</li>
+							<li><strong class="inline-code">model/</strong> contains hidden Markov models, defined by protein sequences in <strong class="inline-code">seq/</strong>.
+								<ul style="font-size:90%">
+									<li>Detailed information of the genes are provided here.<a href="../genes.html" target="_blank"><i class="fa fa-link"></i></a></li>
+								</ul>
+							</li>
+							<li><span class="inline-code">ppx.cfg</span> is a config file used in gene prediction stage, utilized with AUGUSTUS. <a href="http://bioinf.uni-greifswald.de/augustus/binaries/tutorial/ppx.html" target="_blank" rel="noopener noreferer"><i class="fa fa-external-link"></i></a></li>
+							<li><span class="inline-code">tree.cfg</span> is a config file for <code>tree</code> module, containing path information of dependant binaires.</li>
+						</ul>
+						<p class="plast"></p>
+						<h4>Samples</h4>
+						<ul>
+							<li>Sample input and output files are prepared in <strong class="inline-code">sample/</strong> directory. Visit tutorial page to learn how to use them.<a href="../tutorial.html" target="_blank"><i class="fa fa-link"></i></a></li>
+							<li><strong class="inline-code" style="color:#0000cc">meta_*.tsv</strong> is a sample of TSV formatted metadata, which can be provided to the pipeline for annotating genomes.<br>
+								<ul style="font-size:90%">
+									<li>More information about metadata is written in the <strong>Input files - Metadata</strong> section below.</li>
+								</ul>
+							</li>
+						</ul>
+						<p class="plast"></p>
+						<h4>Pipeline</h4>
+						<ul>
+							<li><strong class="inline-code" style="color:#009900">UFCG.jar</strong> is an executable of the pipeline <strong>extracting core genes and creating profiles</strong> of genome assembly.</li>
+						</ul>
+					</div>
+					<div class="infobox">
+						<h2 id="input" class="infoheader">Input files</h2><hr>
+						<h4>Genome assembly&nbsp;&nbsp;<a href="https://www.ncbi.nlm.nih.gov/assembly/" target="_blank" rel="noopener noreferer"><img style="height:20px" src="../image/ncbi_link.png"></a></h4>
+						<p class="plast">UFCG <code>profile</code> extracts the core gene profile from a <strong>FASTA formatted genome assembly</strong>.<br> A single assembly or a directory containing multiple assemblies are accepted as an input. </p>
+						<div class="callout callout-primary">
+							<h5>File integrity of input directory</h5>
+							<p>If you want to give a directory as an input, keep following rules to maintain the integrity of files.</p>
+							<ul>
+								<li>Given directory must contain <strong>genome assemblies only</strong>.</li>
+								<li>File extensions must be unified. (<span class="inline-code">.fa</span>, <span class="inline-code">.fna</span>, <span class="inline-code">.fasta</span>, ...)</li>
+								<!--
+								<li>File types must be unified.
+									<i class="fa fa-info-circle modal-button" data-toggle="modal" data-target="#filetype"></i>
+									<div class="modal fade" id="filetype" tabindex="-1" role="dialog" aria-labelledby="filetypetitle" aria-hidden="true">
+										<div class="modal-dialog modal-dialog-centered" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="filetypetitle"><i class="fa fa-info-circle"></i> &nbsp;File types</h5>
+												</div>
+												<div class="modal-body">
+													<p>Run following script on your terminal to figure out the type of your files in the directory: <code>$ file /your/directory/*</code><br><br>Make sure that all of your files have the identical type string.</p>
+												</div>
+												<div class="modal-footer" style="padding:.5rem">
+													<button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-bottom:0">Got it</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li> -->
+								<li>List of files must correspond to given metadata. (See below)</li>
+							</ul>
+						</div>
+						<p class="plast"></p>
+						<h4>Metadata</h4>
+						<p class="plast">You can provide a metadata for your input genome assemblies by converting them in a proper format. UFCG pipeline recieves <strong>seven entries</strong> that represents the taxonomic label of the genome.</p>
+						<div class="responsive-table"><table class="table table-sm">
+							<thead class="thead-light">
+								<tr>
+									<th scope="col" style="width:20%">Entry</th>
+									<th scope="col" style="width:40%">Description</th>
+									<th scope="col" style="width:40%">Example <a href="https://www.ncbi.nlm.nih.gov/assembly/GCA_000146045.2/" target="_blank" rel="noopener noreferer"><i class="fa fa-external-link"></i></a></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">Filename <i class="fa fa-star-o" style="font-size:90%"></i></th>
+									<td>Name of the file</td>
+									<td><pre>bakers_yeast.fasta</pre></td>
+								</tr>
+								<tr>
+									<th scope="row">Label <i class="fa fa-star-o" style="font-size:90%"></th>
+									<td>Full label of the genome</td>
+									<td><pre>Saccharomyces_cerevisiae_S288C</pre></td>
+								</tr>
+								<tr>
+									<th scope="row">Accession <i class="fa fa-star-o" style="font-size:90%"></th>
+									<td>Accession code of the assembly (NCBI)</td>
+									<td><pre>GCA_000146405.2</pre></td>
+								</tr>
+								<tr>
+									<th scope="row">Taxon name</th>
+									<td>Name of the species</td>
+									<td><pre>Saccharomyces cerevisiae</pre></td>
+								</tr>
+								<tr>
+									<th scope="row">NCBI name</th>
+									<td>Name of the assembly provided in NCBI</td>
+									<td><pre>sacCer3</pre></td>
+								</tr>
+								<tr>
+									<th scope="row">Strain name</th>
+									<td>Name of the strain</td>
+									<td><pre>S288C</pre></td>
+								</tr>
+								<tr>
+									<th scope="row">Taxonomy</th>
+									<td>Full taxonomy of the species</td>
+									<td class="break inline-code">Fungi;Ascomycota;Saccharomycetes;Saccharomycetales;Saccharomycetaceae;Saccharomyces;Saccharomyces cerevisiae</td>
+								</tr>
+							</tbody>
+							<caption style="padding:0 1rem">
+								<i class="fa fa-star-o" style="font-size:90%"></i> : Required entry
+							</caption>
+						</table></div>
+						<p>To provide the metadata to the pipeline, you should create a <strong>TSV (tab-separated values) formatted file</strong> including the data and specify it as an argument. TSV file must include the header line indicating entries, and respectively ordered metadata of the genomes one per line.</p>
+						<p>There are sample metadata TSV files prepared for your guidance. Visit tutorial page to find out how to use them.<a href="../tutorial.html" target="_blank"><i class="fa fa-link"></i></a></p>
+						<ul>
+							<li><strong class="inline-code">sample/meta_full.tsv</strong> contains fully constructed metadata of genomes in <span class="inline-code">sample/seq/</span> directory.</li>
+							<li><strong class="inline-code">sample/meta_simple.tsv</strong> contains minumum data of the genomes.</li>
+						</ul>
+					</div>
+					<div class="infobox">
+						<h2 id="uucgf" class="infoheader">Running <span class="inline-code">profile</span> module</h2><hr>
+						<h4>Interactive mode</h4>
+						<p>Run following command on your terminal to run UFCG pipeline interactively. Interactive mode will guide you through the options that pipeline requires, and automatically create the command to run the pipeline.</p>
+						<figure class="highlight">
+							<pre><span style="color:#888888">$</span> java -jar /path/to/UFCG.jar profile <strong style="color:#cc00cc">-u</strong></pre>
+						</figure>
+						<p class="plast"></p>
+						<h4>Single line command</h4>
+						You can also run the pipeline with a classic one-liner with options and arguments.
+						<figure class="highlight">
+							<pre><span style="color:#888888">$</span> java -jar /path/to/UFCG.jar profile <strong style="color:#cc00cc">-i</strong> &lt;PATH&gt; <strong style="color:#cc00cc">-o</strong> &lt;PATH&gt; <strong style="color:#0000cc">[options]</strong></pre>
+						</figure>
+						<div class="callout callout-primary">
+						<h5>Required options</h5>
+							<ul>
+								<li><span class="inline-code"><strong style="color:#cc00cc">-i</strong> &lt;DIR&gt;</span> : Locate the path of the <strong>input file/directory</strong> with fungal genome(s)</li>
+								<li><span class="inline-code"><strong style="color:#cc00cc">-o</strong> &lt;DIR&gt;</span> : Locate the path of the <strong>output directory</strong> to store result files</li>
+							</ul>
+						</div>
+						<div class="callout callout-default">
+							<h5>Additional options</h5>
+							<p>Following options are not mandatory, but maybe useful to configurate your run.</p>
+							<ul>
+								<li><span class="inline-code"><strong style="color:#0000cc">-m</strong> &lt;FILE&gt;</span> : Locate the path to the TSV file containing metadata</li>
+								<li><span class="inline-code"><strong style="color:#0000cc">-c</strong> &lt;INT&gt;</span> : Number of CPU thread(s) to use</li>
+								<li><span class="inline-code"><strong style="color:#0000cc">-f</strong> &lt;BOOL&gt;</span> : Force to overwrite the result files in output directory</li>
+								<li><span class="inline-code"><strong style="color:#0000cc">-v</strong> </span> : Make program verbose</li>
+							</ul>
+							<p>To check the entire available options, run the pipeline with <strong class="inline-code" style="color:#cc00cc">-h</strong> option.</p>
+						</div>
+						<h4>Results</h4>
+						<p>
+							The pipeline will extract the core gene profiles of given genome assemblies and store them as <span class="inline-code">.ucg</span> files.
+							<!-- Modal -->
+							<i class="fa fa-info-circle modal-button" data-toggle="modal" data-target="#ucgfile"></i>
+							<div class="modal fade" id="ucgfile" tabindex="-1" role="dialog" aria-labelledby="ucgfiletitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="ucgfiletitle"><i class="fa fa-info-circle"></i> &nbsp;<span class="inline-code">.ucg</span> file format</h5>
+										</div>
+										<div class="modal-body">
+											<p>Files with the extension <span class="inline-code">.ucg</span> are <strong>JSON-formatted</strong> profiles containing extracted <strong>sequences of core genes</strong>, along with the <strong>metadata</strong> of the genome. These files can also be read and edited via any text editor.</p>
+										</div>
+										<div class="modal-footer" style="padding:.5rem">
+											<button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-bottom:0">Got it</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</p>
+						<ul>
+							<li>Note the path to the output directory, or copy its contents into the other directory, to use it as an input of <code>tree</code> module.</li>
+						</ul>
+					</div>
+					<div class="infobox">
+						<h2 id="uucgtree" class="infoheader">Running <span class="inline-code">tree</span> module</h2><hr>
+						<h4>Align genes and infer tree</h4>
+						<p>Run following command on your terminal to align the genes and infer phylogenetic tree with UFCG pipeline.</p>
+						<figure class="highlight">
+							<pre><span style="color:#888888">$</span> java -jar /path/to/UFCG.jar tree <strong style="color:#cc00cc">-i</strong> &lt;DIR&gt; <strong style="color:#cc00cc">-l</strong> &lt;LIST&gt; <strong style="color:#0000cc">[options]</strong></pre>
+						</figure>
+						<div class="callout callout-primary">
+							<h5>Required options</h5>
+							<ul>
+								<li><span class="inline-code"><strong style="color:#cc00cc">-i</strong> &lt;DIR&gt;</span> : Locate the path of the <strong>input <span class="inline-code">.ucg</span> profiles</strong> to align and infer tree</li>
+								<li><span class="inline-code"><strong style="color:#cc00cc">-l</strong> &lt;LIST&gt;</span> : <strong>Name the leaves</strong> of the phylogenetic tree from the metadata <i class="fa fa-info-circle modal-button" data-toggle="modal" data-target="#leaf"></i></li>
+							</ul>
+							<!-- Modal -->
+							<div class="modal fade" id="leaf" tabindex="-1" role="dialog" aria-labelledby="leaftitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="leaftitle"><i class="fa fa-info-circle"></i> &nbsp;<span class="inline-code">-l</span> option</h5>
+										</div>
+										<div class="modal-body">
+											<h5>Argument list</h5>
+											<p>Select <strong>at least one</strong> from the following options and concatenate them with comma:</p>
+											<ul>
+												<li><span class="inline-code">uid</span> : Include unique integer ID</li>
+												<li><span class="inline-code">acc</span> : Include accession number</li>
+												<li><span class="inline-code">label</span> : Include full label</li>
+												<li><span class="inline-code">taxon</span> : Include taxon name</li>
+												<li><span class="inline-code">strain</span> : Include strain name</li>
+												<li><span class="inline-code">taxonomy</span> : Include taxonomic relationship</li>
+											</ul>
+											<p class="plast">Note that the options given must be included in the <span class="inline-code">.ucg</span> profile as a metadata.</p>
+											<h5>Examples</h5>
+											<ul>
+												<li><span class="inline-code">-l <strong style="color:#0000cc">uid</strong></span> : Include unique IDs only</li>
+												<li><span class="inline-code">-l <strong style="color:#0000cc">acc,label,taxon</strong></span> : Include accession, label and taxon names</li>
+												<li><span class="inline-code">-l <strong style="color:#0000cc">uid,acc,label,taxon,strain,taxonomy</strong></span> : Include all metadata</li>
+											</ul>
+										</div>
+										<div class="modal-footer" style="padding:.5rem">
+											<button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-bottom:0">Got it</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="callout callout-default">
+							<h5>Additional options</h5>
+							<ul>
+								<li><span class="inline-code"><strong style="color:#0000cc">-o</strong> &lt;DIR&gt;</span> : Locate the path of the directory for results</li>
+								<li><span class="inline-code"><strong style="color:#0000cc">-n</strong> &lt;STR&gt;</span> : Runtime name for this analysis</li>
+								<li><span class="inline-code"><strong style="color:#0000cc">-a</strong> &lt;STR&gt;</span> : Select sequence to align
+									<ul style="font-size:90%">
+										<li><span class="inline-code">nucleotide</span> : Use given nucleotide sequence (default)</li>
+										<li><span class="inline-code">protein</span> : Use given amino acid sequence</li>
+										<li><span class="inline-code">codon</span> : Use codons encrypting given amino acid sequence</li>
+										<li><span class="inline-code">codon12</span> : Use codons without third bases</li>
+									</ul>
+								</li>
+								<li><span class="inline-code"><strong style="color:#0000cc">-t</strong> &lt;INT&gt;</span> : Number of CPU threads to use</li>
+								<li><span class="inline-code"><strong style="color:#0000cc">-p</strong> &lt;BINARY&gt;</span> : Use different tree building program</li>
+							</ul>
+							<p>To check the entire available options, run the module with <strong class="inline-code" style="color:#cc00cc">-h</strong> option.</p>
+						</div>
+						<p class="plast"></p>
+						<h4>Results</h4>
+						<p class="plast"><code>tree</code> module will produce following result files. You may further analyze the trees with various phylogenetic tools that can handle Newick files. (MEGA, ETE, ape, etc.)</p>
+						<div class="responsive-table"><table class="table table-sm">
+							<thead class="thead-light">
+								<tr>
+									<th scope="col" style="width:10%">Type</th>
+									<th scope="col" style="width:30%">Name</th>
+									<th scope="col" style="width:60%">Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row" rowspan="3">Tree</th>
+									<td><pre>concatenated.nwk</pre></td>
+									<td>UFCG tree inferred from concatenated alignment</td>
+								</tr>
+								<tr>
+									<td><pre>concatenated_gsi_[N].nwk</pre></td>
+									<td>UFCG tree with GSI values computed with [N] genes, replacing bootstrap values</td>
+								</tr>
+								<tr>
+									<td><pre>tree/[GENE].nwk</pre></td>
+									<td>Gene tree inferred from each single gene</td>
+								</tr>
+								<tr>
+									<th scope="row" rowspan="2">Align</th>
+									<td><pre>aligned_concatenated.fasta</td>
+									<td>Concatenated sequences of entire core gene alignments</td>
+								</tr>
+								<tr>
+									<td><pre>align/aligned_[GENE].fasta</pre></td>
+									<td>Aligned sequences of each single gene</td>
+								</tr>
+								<tr>
+									<th scope="row" rowspan="2">Misc</th>
+									<td><pre>[run_id].log</pre></td>
+									<td>Log file containing information about this run</td>
+								</tr>
+								<tr>
+									<td><pre>[run_id].trm</pre></td>
+									<td>JSON file containing entire trees and their metadata</td>
+								</tr>
+							</tbody>
+						</table></div>
+						<p class="plast"></p>
+						<h4>Replace labels of tree</h4>
+						<p>Run following command to replace the name of leaves with a different format.</p>
+						<figure class="highlight">
+							<pre><span style="color:#888888">$</span> java -jar /path/to/UFCG.jar prune <strong style="color:#cc00cc">-i</strong> &lt;TRM&gt; <strong style="color:#cc00cc">-g</strong> &lt;STR&gt; <strong style="color:#cc00cc">-l</strong> &lt;LIST&gt;</pre>
+						</figure>
+						<div class="callout callout-primary">
+							<h5>Required options</h5>
+							<ul>
+								<li><span class="inline-code"><strong style="color:#cc00cc">-i</strong> &lt;TRM&gt;</span> : Locate the path of the <strong><span class="inline-code">.trm</span> file</strong> from your run</li>
+								<li>
+									<span class="inline-code"><strong style="color:#cc00cc">-g</strong> &lt;STR&gt;</span> : Specify a gene name to replace
+									<ul>
+										<li>Put <strong class="inline-code">UFCG</strong> to replace UFCG tree.</li>
+										<li>Put the name of gene (ex. <span class="inline-code">RPB2</span>) to replace the corresponding single gene tree.</li>
+									</ul>
+								</li>
+								<li><span class="inline-code"><strong style="color:#cc00cc">-l</strong></span> : Leaf option identical to <code>tree</code> module</li>
+							</ul>
+						</div>
+
+						<h5>Examples</h5>
+						<p>To replace the <strong>UFCG tree</strong> by using <strong>taxon names and strain names</strong> as leaves from the run <strong class="inline-code">myRun</strong>, execute:</p>
+						<figure class="highlight">
+							<pre><span style="color:#888888">$</span> java -jar /path/to/UFCG.jar prune <strong style="color:#cc00cc">-i</strong> myRun.trm <strong style="color:#cc00cc">-g</strong> UFCG <strong style="color:#cc00cc">-l</strong> taxon,strain</pre>
+						</figure>
+						<p>To replace the <strong>RPB2 gene tree</strong> by using <strong>accessions and taxonomic relationships</strong> as leaves from the run <strong class="inline-code">Lorem_ipsum</strong>, execute:</p>
+						<figure class="highlight">
+							<pre><span style="color:#888888">$</span> java -jar /path/to/UFCG.jar prune <strong style="color:#cc00cc">-i</strong> Lorem_ipsum.trm <strong style="color:#cc00cc">-g</strong> RPB2 <strong style="color:#cc00cc">-l</strong> acc,taxonomy</pre>
+						</figure>
+					</div>
+					<div class="infobox">
+						<h2 id="trouble" class="infoheader">Troubleshooting</h2><hr>
+						<h5>Q. UFCG emits error "<span class="inline-code">AUGUSTUS_CONFIG_PATH</span> undefined or improperly defined". How can I solve it?</h5>
+						<p>You have to define a local variable <code>$AUGUSTUS_CONFIG_PATH</code> to run AUGUSTUS properly. Run following code to define the variable.</p>
+						<figure class="highlight">
+							<pre><span style="color:#888888">$</span> export AUGUSTUS_CONFIG_PATH=/path/to/augustus/config/</pre>
+						</figure>
+						<p>If you are using <code>bash</code>, run this to semi-permanently add the variable on your system.
+							<figure class="highlight">
+							<pre><span style="color:#888888">$</span> echo "export AUGUSTUS_CONFIG_PATH=/path/to/augustus/config/" >> ~/.bash_profile</pre>
+							<pre><span style="color:#888888">$</span> source ~/.bash_profile</pre>
+						</figure>
+					</div>
+					<div class="infobox">
+						<h2 id="about" class="infoheader">About us</h2><hr>
+						<div style="line-height:90%">
+							<strong class="inline-code">&nbsp;&nbsp;&nbsp;&nbsp;__&nbsp;&nbsp;__&nbsp;_____&nbsp;_____&nbsp;_____</strong><br>
+							<strong class="inline-code">&nbsp;&nbsp;&nbsp;/&nbsp;/&nbsp;/&nbsp;//&nbsp;___//&nbsp;___//&nbsp;___/</strong><br>
+							<strong class="inline-code">&nbsp;&nbsp;/&nbsp;/&nbsp;/&nbsp;//&nbsp;/_&nbsp;&nbsp;/&nbsp;/&nbsp;&nbsp;&nbsp;/&nbsp;/&nbsp;__</strong><br>
+							<strong class="inline-code">&nbsp;/&nbsp;/_/&nbsp;//&nbsp;__/&nbsp;/&nbsp;/___/&nbsp;/_/&nbsp;/</strong><br>
+							<strong class="inline-code">&nbsp;\____//_/&nbsp;&nbsp;&nbsp;&nbsp;\____/\____/</strong><br>
+						</div>
+						<p>
+							<strong>UFCG pipeline</strong> was developed by Daniel Dongwook Kim. <a href="mailto:endix1029@gmail.com" target="_top" style="color:black"><i class="fa fa-envelope-o"></i></a><br>
+							<strong>UFCG project</strong> is under instruction of professor Martin Steinegger <a href="mailto:martin.steinegger@snu.ac.kr" target="_top" style="color:black"><i class="fa fa-envelope-o"></i></a> and Jon Jongsik Chun <a href="mailto:jchun@snu.ac.kr" target="_top" style="color:black"><i class="fa fa-envelope-o"></i></a>
+						</p>
+						<p>&copy; All rights reserved to Steinegger Lab, Seoul National University.</p>
+					</div>
+					<div id="bottom" class="infoheader"></div>
+				</div>
+			</div>
+				<div class="bd-sidebar hidden-mobile">
+					<nav id="bd-docs-nav">
+						<ul class="nav bd-sidenav">
+							<li><a href="index.html#start"><strong>Quick start</strong></a></li>
+							<li><a href="index.html#content"><strong>Contents</strong></a></li>
+							<li><a href="index.html#input"><strong>Input files</strong></a></li>
+							<li><a href="index.html#uucgf"><strong>Running <span class="inline-code">profile</span></strong></a></li>
+							<li><a href="index.html#uucgtree"><strong>Running <span class="inline-code">tree</span></strong></a></li>
+							<li><a href="index.html#trouble"><strong>Troubleshooting</strong></a></li>
+							<li><a href="index.html#about"><strong>About us</strong></a></li>
+							<li><a href="index.html#top" style="font-size:90%">Back to top</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</section>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../../ufcg.html"><img src="../image/UFCG_logo.svg" width="30"> UFCG</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarsExampleDefault"
+				aria-controls="navbarsExampleDefault" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="../../ufcg.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/database" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Database</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="../genes.html">Genes</a>
+							<a class="dropdown-item" href="../species.html">Species</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/pipeline" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pipeline</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="../manual.html">Manual</a>
+							<a class="dropdown-item" href="../tutorial.html">Tutorial</a>
+							<a class="dropdown-item" href="../download.html">Download</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/links" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Links</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="https://github.com/endixk/ufcg" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i> GitHub</a>
+							<a class="dropdown-item" href="https://steineggerlab.com" target="_blank" rel="noopener noreferrer"><i class="fa fa-flask"></i> Steinegger Lab</a>
+							<a class="dropdown-item" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fa fa-creative-commons"></i> License</a>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="../citation.html">Cite us</a></li>
+					</ul>
+			</div>
+		</div>
+	</nav>
+	<script>
+		$(document).ready(function() {
+			var pname = window.location.pathname;
+			var phead = '/ufcg';
+			if(pname.split('/').length > 2){
+				phead = phead + '/' + pname.split('/')[2];
+			}
+			if(phead == '/ufcg/genes' || phead == '/ufcg/species'){
+			 	phead = '/ufcg/database'
+			}
+			if(phead == '/ufcg/manual' || phead == '/ufcg/tutorial' || phead == '/ufcg/download'){
+			 	phead = '/ufcg/pipeline'
+			}
+			$('.navbar-nav > li > a[href="'+ phead +'"]').parent().addClass('active');
+		})
+	</script>
+</body>
+</html>

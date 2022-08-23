@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UFCG - Genes</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="shortcut icon" href="image/UUCG_favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+<!--link rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+	integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7"
+	crossorigin="anonymous"-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju/dt-1.10.20/datatables.min.css"/>
+<style>
+	.bd-sidebar{
+		border-left: 1px solid rgba(0,0,0,.1);
+		position:fixed;
+		max-width:20%;
+		top:6rem;right:0;
+	}
+	.bd-sidebar .nav > li > a {
+		display: inline-block;
+		width:15vw;
+		padding: .25rem 1.25rem;
+		@include font-size(90%);
+		color: rgba(0, 0, 0, .65);
+	}
+	.bd-sidebar .nav > li > a:hover {
+		color: rgba(0, 0, 0, .85);
+		text-decoration: none;
+		background-color: transparent;
+	}
+
+	.infobox {
+		margin-bottom: 0rem;
+	}
+	.infoheader{
+		padding-top: 3.5rem;
+	}
+	.inline-code{
+		font-size:85%;
+		font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+		line-height:2.5;
+	}
+	.modal-button:hover{
+		color:gray;
+	}
+	.btn-gene{
+		padding:0 0;
+		margin:7px 0;
+		line-height:0.9;
+	}
+	.icon-link{color:gray;}
+	.icon-link:hover{color:#212121;}
+	td > a{color:black;}
+	td > a:hover{color:gray;}
+	table.dataTable thead .sorting { background: url('https://cdn.datatables.net/1.10.20/images/sort_both.png') no-repeat center right; }
+	table.dataTable thead .sorting_asc { background: url('https://cdn.datatables.net/1.10.20/images/sort_asc.png') no-repeat center right; }
+	table.dataTable thead .sorting_desc { background: url('https://cdn.datatables.net/1.10.20/images/sort_desc.png') no-repeat center right; }
+	table.dataTable thead th {padding:10px 1rem;}
+	table.dataTable tbody th,
+	table.dataTable tbody td {padding:0px 1rem;}
+	table.dataTable.no-footer{
+		border-bottom:2px solid #dee2e6;
+	}
+</style>
+</head>
+<body>
+	<section style="min-height:100%;padding-bottom:3rem" class="body_section">
+		<!-- loading image  -->
+		<div id="loading">
+			<img id="loading-image" src="image/loading.gif" alt="Loading..."/>
+		</div>
+		<div class="container">
+		<!--
+			<div class="infobox">
+				<h1 id="about" class="infoheader">About UFCG</h1><hr>
+				<p><strong>UFCG</strong> is a set of core genes of fungi. UFCG contains 68 fungal genes, manually curated by following criterion:</p>
+				<ul>
+					<li>Within the genes from the SGD <em>Saccharomyces cerevisiae</em> S288C reference ORF proteome,</li>
+					<li>select genes discovered in more than 90% of species from the set of fungal species,</li>
+					<li>which contains 1,587 species with quality-controlled genome on NCBI RefSeq database.</li>
+				</ul>
+				<p style="margin-bottom:0">Information about the fungal species used in this study can be obtained here. <a href="/ufcg/species/" target="_blank"><i class="fa fa-link"></i></a></p>
+			</div>
+		-->
+			<div class="infobox">
+				<h1 id="list" class="infoheader">Gene list <i class="fa fa-question-circle modal-button" style="font-size:50%" data-toggle="modal" data-target="#info"></i></h1>
+				<!-- Modal -->
+				<div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="infotitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="infotitle"><i class="fa fa-question-circle"></i> &nbsp;Tips</h5>
+							</div>
+							<div class="modal-body">
+								<ul style="line-height:2">
+									<li>Click on the column headers to sort each column.</li>
+									<li>SGD and UniProt IDs are linked to the corresponding database.</li>
+									<li>Click on the button <i class="fa fa-chevron-circle-right icon-link"></i> to check out the detailed information of each core gene.</li>
+								</ul>
+							</div>
+							<div class="modal-footer" style="padding:.5rem">
+								<button type="button" class="btn btn-primary" data-dismiss="modal" style="margin-bottom:0">Got it</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<!--p>Table below is the full list of 69 genes in UFCG. Click on the name to check out more detailed information about each gene.</p-->
+				<table id="genes" class="table table-sm display" style="width:100%">
+					<thead>
+						<tr>
+							<th scope="col" style="width:5%">No.</th>
+							<th scope="col" style="width:10%">Gene</th>
+							<th scope="col" style="width:65%">Function</th>
+							<th scope="col" style="width:10%">SGD</th>
+							<th scope="col" style="width:10%">UniProt</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row" class="inline-code">1</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>ACT1</strong>
+								<a class="btn-gene" role="button" href="genes/ZPR1/next.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Actin</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YFL039C" target="_blank" rel="noopener noreferrer">YFL039C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P60010" target="_blank" rel="noopener noreferrer">P60010</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">2</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>ATP6</strong>
+								<a class="btn-gene" role="button" href="genes/BMS1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>F1F0 ATP synthase subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/Q0085" target="_blank" rel="noopener noreferrer">Q0085</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P00854" target="_blank" rel="noopener noreferrer">P00854</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">3</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>BMS1</strong>
+								<a class="btn-gene" role="button" href="genes/BRE2/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Ribosome biogenesis protein</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YPL217C" target="_blank" rel="noopener noreferrer">YPL217C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q08965" target="_blank" rel="noopener noreferrer">Q08965</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">4</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>BRE2</strong>
+								<a class="btn-gene" role="button" href="genes/CCT8/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>COMPASS component</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YLR015W" target="_blank" rel="noopener noreferrer">YLR015W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P43132" target="_blank" rel="noopener noreferrer">P43132</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">5</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>CCT8</strong>
+								<a class="btn-gene" role="button" href="genes/CMD1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Chaperonin-containing T-complex subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YJL008C" target="_blank" rel="noopener noreferrer">YJL008C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P47079" target="_blank" rel="noopener noreferrer">P47079</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">6</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>CMD1</strong>
+								<a class="btn-gene" role="button" href="genes/COB/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Calmodulin</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YBR109C" target="_blank" rel="noopener noreferrer">YBR109C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P06787" target="_blank" rel="noopener noreferrer">P06787</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">7</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>COB</strong>
+								<a class="btn-gene" role="button" href="genes/COX1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Cytochrome b</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/Q0105" target="_blank" rel="noopener noreferrer">Q0105</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P00163" target="_blank" rel="noopener noreferrer">P00163</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">8</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>COX1</strong>
+								<a class="btn-gene" role="button" href="genes/COX2/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Cytochrome c oxidase subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/Q0045" target="_blank" rel="noopener noreferrer">Q0045</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P00401" target="_blank" rel="noopener noreferrer">P00401</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">9</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>COX2</strong>
+								<a class="btn-gene" role="button" href="genes/COX3/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Cytochrome c oxidase subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/Q0250" target="_blank" rel="noopener noreferrer">Q0250</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P00410" target="_blank" rel="noopener noreferrer">P00410</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">10</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>COX3</strong>
+								<a class="btn-gene" role="button" href="genes/DIP2/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Cytochrome c oxidase subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/Q0275" target="_blank" rel="noopener noreferrer">Q0275</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P00420" target="_blank" rel="noopener noreferrer">P00420</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">11</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>DIP2</strong>
+								<a class="btn-gene" role="button" href="genes/DPH5/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>U3 small nucleolar RNA-associated protein 12</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YLR129W" target="_blank" rel="noopener noreferrer">YLR129W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q12220" target="_blank" rel="noopener noreferrer">Q12220</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">12</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>DPH5</strong>
+								<a class="btn-gene" role="button" href="genes/DYS1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Diphthine methyl ester synthase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YLR172C" target="_blank" rel="noopener noreferrer">YLR172C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P32469" target="_blank" rel="noopener noreferrer">P32469</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">13</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>DYS1</strong>
+								<a class="btn-gene" role="button" href="genes/ELP3/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Deoxyhypusine synthase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YHR068W" target="_blank" rel="noopener noreferrer">YHR068W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P38791" target="_blank" rel="noopener noreferrer">P38791</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">14</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>ELP3</strong>
+								<a class="btn-gene" role="button" href="genes/ESF1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Elongator complex protein 3</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YPL086C" target="_blank" rel="noopener noreferrer">YPL086C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q02908" target="_blank" rel="noopener noreferrer">Q02908</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">15</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>ESF1</strong>
+								<a class="btn-gene" role="button" href="genes/FAP7/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Pre-rRNA-processing protein</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YDR365C" target="_blank" rel="noopener noreferrer">YDR365C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q06344" target="_blank" rel="noopener noreferrer">Q06344</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">16</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>FAP7</strong>
+								<a class="btn-gene" role="button" href="genes/FRS1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Adenylate kinase isoenzyme 6 homolog</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YDL166C" target="_blank" rel="noopener noreferrer">YDL166C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q12055" target="_blank" rel="noopener noreferrer">Q12055</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">17</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>FRS1</strong>
+								<a class="btn-gene" role="button" href="genes/HEM12/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Phenylalanine--tRNA ligase beta subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YLR060W" target="_blank" rel="noopener noreferrer">YLR060W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P15624" target="_blank" rel="noopener noreferrer">P15624</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">18</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>HEM12</strong>
+								<a class="btn-gene" role="button" href="genes/HIS4/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Uroporphyrinogen decarboxylase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YDR047W" target="_blank" rel="noopener noreferrer">YDR047W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P32347" target="_blank" rel="noopener noreferrer">P32347</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">19</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>HIS4</strong>
+								<a class="btn-gene" role="button" href="genes/HIS7/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Histidine biosynthesis trifunctional protein</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YCL030C" target="_blank" rel="noopener noreferrer">YCL030C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P00815" target="_blank" rel="noopener noreferrer">P00815</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">20</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>HIS7</strong>
+								<a class="btn-gene" role="button" href="genes/ILV1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Imidazole glycerol phosphate synthase </td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YBR248C" target="_blank" rel="noopener noreferrer">YBR248C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P33734" target="_blank" rel="noopener noreferrer">P33734</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">21</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>ILV1</strong>
+								<a class="btn-gene" role="button" href="genes/KRE33/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Threonine dehydratase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YER086W" target="_blank" rel="noopener noreferrer">YER086W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P00927" target="_blank" rel="noopener noreferrer">P00927</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">22</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>KRE33</strong>
+								<a class="btn-gene" role="button" href="genes/MCM7/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>RNA cytidine acetyltransferase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YNL132W" target="_blank" rel="noopener noreferrer">YNL132W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P53914" target="_blank" rel="noopener noreferrer">P53914</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">23</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>MCM7</strong>
+								<a class="btn-gene" role="button" href="genes/MET6/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Mini-chromosome maintenance complex subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YBR202W" target="_blank" rel="noopener noreferrer">YBR202W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P38132" target="_blank" rel="noopener noreferrer">P38132</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">24</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>MET6</strong>
+								<a class="btn-gene" role="button" href="genes/MIP1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>5-methyltetrahydropteroyltriglutamate--homocysteine methyltransferase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YER091C" target="_blank" rel="noopener noreferrer">YER091C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P05694" target="_blank" rel="noopener noreferrer">P05694</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">25</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>MIP1</strong>
+								<a class="btn-gene" role="button" href="genes/MRPL19/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>DNA polymerase gamma</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YOR330C" target="_blank" rel="noopener noreferrer">YOR330C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P15801" target="_blank" rel="noopener noreferrer">P15801</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">26</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>MRPL19</strong>
+								<a class="btn-gene" role="button" href="genes/MSF1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>54S ribosomal protein L19</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YNL185C" target="_blank" rel="noopener noreferrer">YNL185C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P53875" target="_blank" rel="noopener noreferrer">P53875</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">27</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>MSF1</strong>
+								<a class="btn-gene" role="button" href="genes/MSS51/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Phenylalanine--tRNA ligase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YPR047W" target="_blank" rel="noopener noreferrer">YPR047W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P08425" target="_blank" rel="noopener noreferrer">P08425</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">28</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>MSS51</strong>
+								<a class="btn-gene" role="button" href="genes/MVD1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Mitochondrial splicing suppressor protein 51</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YLR203C" target="_blank" rel="noopener noreferrer">YLR203C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P32335" target="_blank" rel="noopener noreferrer">P32335</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">29</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>MVD1</strong>
+								<a class="btn-gene" role="button" href="genes/NCS6/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Diphosphomevalonate decarboxylase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YNR043W" target="_blank" rel="noopener noreferrer">YNR043W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P32377" target="_blank" rel="noopener noreferrer">P32377</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">30</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>NCS6</strong>
+								<a class="btn-gene" role="button" href="genes/NDI1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Cytoplasmic tRNA 2-thiolation protein 1</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YGL211W" target="_blank" rel="noopener noreferrer">YGL211W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P53088" target="_blank" rel="noopener noreferrer">P53088</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">31</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>NDI1</strong>
+								<a class="btn-gene" role="button" href="genes/NOG1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>NADH-ubiquinone reductase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YML120C" target="_blank" rel="noopener noreferrer">YML120C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P32340" target="_blank" rel="noopener noreferrer">P32340</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">32</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>NOG1</strong>
+								<a class="btn-gene" role="button" href="genes/NOP14/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Nucleolar GTP-binding protein 1</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YPL093W" target="_blank" rel="noopener noreferrer">YPL093W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q02892" target="_blank" rel="noopener noreferrer">Q02892</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">33</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>NOP14</strong>
+								<a class="btn-gene" role="button" href="genes/OLI1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Nucleolar complex protein 14</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YDL148C" target="_blank" rel="noopener noreferrer">YDL148C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q99207" target="_blank" rel="noopener noreferrer">Q99207</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">34</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>OLI1</strong>
+								<a class="btn-gene" role="button" href="genes/PAH1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>F0 ATP synthase subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/Q0130" target="_blank" rel="noopener noreferrer">Q0130</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P61829" target="_blank" rel="noopener noreferrer">P61829</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">35</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>PAH1</strong>
+								<a class="btn-gene" role="button" href="genes/PGK1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Phosphatidate phosphatase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YMR165C" target="_blank" rel="noopener noreferrer">YMR165C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P32567" target="_blank" rel="noopener noreferrer">P32567</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">36</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>PGK1</strong>
+								<a class="btn-gene" role="button" href="genes/POL2/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Phosphoglycerate kinase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YCR012W" target="_blank" rel="noopener noreferrer">YCR012W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P00560" target="_blank" rel="noopener noreferrer">P00560</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">37</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>POL2</strong>
+								<a class="btn-gene" role="button" href="genes/PRT1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>DNA polymerase epsilon catalytic subunit A</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YNL262W" target="_blank" rel="noopener noreferrer">YNL262W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P21951" target="_blank" rel="noopener noreferrer">P21951</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">38</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>PRT1</strong>
+								<a class="btn-gene" role="button" href="genes/RAD2/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Eukaryotic translation initiation factor 3 subunit B</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YOR361C" target="_blank" rel="noopener noreferrer">YOR361C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P06103" target="_blank" rel="noopener noreferrer">P06103</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">39</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>RAD2</strong>
+								<a class="btn-gene" role="button" href="genes/RLI1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>DNA repair protein</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YGR258C" target="_blank" rel="noopener noreferrer">YGR258C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P07276" target="_blank" rel="noopener noreferrer">P07276</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">40</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>RLI1</strong>
+								<a class="btn-gene" role="button" href="genes/RPB2/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Translation initiation factor</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YDR091C" target="_blank" rel="noopener noreferrer">YDR091C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q03195" target="_blank" rel="noopener noreferrer">Q03195</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">41</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>RPB2</strong>
+								<a class="btn-gene" role="button" href="genes/RPF2/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>DNA-directed RNA polymerase II core subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YOR151C" target="_blank" rel="noopener noreferrer">YOR151C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P08518" target="_blank" rel="noopener noreferrer">P08518</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">42</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>RPF2</strong>
+								<a class="btn-gene" role="button" href="genes/RPN1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Ribosome biogenesis protein</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YKR081C" target="_blank" rel="noopener noreferrer">YKR081C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P36160" target="_blank" rel="noopener noreferrer">P36160</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">43</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>RPN1</strong>
+								<a class="btn-gene" role="button" href="genes/RPO21/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>26S proteasome regulatory subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YHR027C" target="_blank" rel="noopener noreferrer">YHR027C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P38764" target="_blank" rel="noopener noreferrer">P38764</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">44</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>RPO21</strong>
+								<a class="btn-gene" role="button" href="genes/RPP0/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>DNA-directed RNA polymerase II core subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YDL140C" target="_blank" rel="noopener noreferrer">YDL140C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P04050" target="_blank" rel="noopener noreferrer">P04050</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">45</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>RPP0</strong>
+								<a class="btn-gene" role="button" href="genes/SDA1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>60S acidic ribosomal protein P0</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YLR340W" target="_blank" rel="noopener noreferrer">YLR340W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P05317" target="_blank" rel="noopener noreferrer">P05317</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">46</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>SDA1</strong>
+								<a class="btn-gene" role="button" href="genes/SEC21/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Severe depolymerization of actin protein 1</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YGR245C" target="_blank" rel="noopener noreferrer">YGR245C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P53313" target="_blank" rel="noopener noreferrer">P53313</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">47</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>SEC21</strong>
+								<a class="btn-gene" role="button" href="genes/SEC26/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Coatomer subunit gamma</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YNL287W" target="_blank" rel="noopener noreferrer">YNL287W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P32074" target="_blank" rel="noopener noreferrer">P32074</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">48</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>SEC26</strong>
+								<a class="btn-gene" role="button" href="genes/SPB1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Coatomer subunit beta</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YDR238C" target="_blank" rel="noopener noreferrer">YDR238C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P41810" target="_blank" rel="noopener noreferrer">P41810</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">49</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>SPB1</strong>
+								<a class="btn-gene" role="button" href="genes/TEF1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>27S pre-rRNA (guanosine(2922)-2&#39;-O)-methyltransferase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YCL054W" target="_blank" rel="noopener noreferrer">YCL054W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P25582" target="_blank" rel="noopener noreferrer">P25582</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">50</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>TEF1</strong>
+								<a class="btn-gene" role="button" href="genes/TIF5/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Translation elongation factor EF-1 alpha</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YPR080W" target="_blank" rel="noopener noreferrer">YPR080W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P02994" target="_blank" rel="noopener noreferrer">P02994</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">51</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>TIF5</strong>
+								<a class="btn-gene" role="button" href="genes/TIM44/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Eukaryotic translation initiation factor 5</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YPR041W" target="_blank" rel="noopener noreferrer">YPR041W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P38431" target="_blank" rel="noopener noreferrer">P38431</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">52</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>TIM44</strong>
+								<a class="btn-gene" role="button" href="genes/TOP1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Mitochondrial import inner membrane translocase subunit</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YIL022W" target="_blank" rel="noopener noreferrer">YIL022W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q01852" target="_blank" rel="noopener noreferrer">Q01852</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">53</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>TOP1</strong>
+								<a class="btn-gene" role="button" href="genes/TRM1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>DNA topoisomerase 1</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YOL006C" target="_blank" rel="noopener noreferrer">YOL006C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P04786" target="_blank" rel="noopener noreferrer">P04786</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">54</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>TRM1</strong>
+								<a class="btn-gene" role="button" href="genes/TRP3/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>tRNA (guanine(26)-N(2))-dimethyltransferase</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YDR120C" target="_blank" rel="noopener noreferrer">YDR120C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P15565" target="_blank" rel="noopener noreferrer">P15565</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">55</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>TRP3</strong>
+								<a class="btn-gene" role="button" href="genes/TSR1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Multifunctional tryptophan biosynthesis protein</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YKL211C" target="_blank" rel="noopener noreferrer">YKL211C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P00937" target="_blank" rel="noopener noreferrer">P00937</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">56</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>TSR1</strong>
+								<a class="btn-gene" role="button" href="genes/TUB1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Ribosome maturation factor</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YDL060W" target="_blank" rel="noopener noreferrer">YDL060W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q07381" target="_blank" rel="noopener noreferrer">Q07381</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">57</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>TUB1</strong>
+								<a class="btn-gene" role="button" href="genes/TUB2/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Alpha-tubulin</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YML085C" target="_blank" rel="noopener noreferrer">YML085C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P09733" target="_blank" rel="noopener noreferrer">P09733</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">58</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>TUB2</strong>
+								<a class="btn-gene" role="button" href="genes/UTP21/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Beta-tubulin</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YFL037W" target="_blank" rel="noopener noreferrer">YFL037W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P02557" target="_blank" rel="noopener noreferrer">P02557</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">59</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>UTP21</strong>
+								<a class="btn-gene" role="button" href="genes/VMA1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>U3 small nucleolar RNA-associated protein 21</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YLR409C" target="_blank" rel="noopener noreferrer">YLR409C</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/Q06078" target="_blank" rel="noopener noreferrer">Q06078</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">60</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>VMA1</strong>
+								<a class="btn-gene" role="button" href="genes/ZPR1/prev.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>V-type proton ATPase catalytic subunit A</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YDL185W" target="_blank" rel="noopener noreferrer">YDL185W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P17255" target="_blank" rel="noopener noreferrer">P17255</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row" class="inline-code">61</th>
+							<td class="inline-code" style="white-space:nowrap">
+								<strong>ZPR1</strong>
+								<a class="btn-gene" role="button" href="genes/VMA1/next.html" rel="noopener noreferrer">
+									<i class="fa fa-chevron-circle-right icon-link"></i>
+								</a>
+							<td>Zinc finger protein</td>
+							<td class="inline-code">
+								<a href="https://www.yeastgenome.org/locus/YGR211W" target="_blank" rel="noopener noreferrer">YGR211W</a>
+							</td>
+							<td class="inline-code">
+								<a href="https://www.uniprot.org/uniprot/P53303" target="_blank" rel="noopener noreferrer">P53303</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="bottom" class="infoheader"></div>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#genes').DataTable({
+					"order": [
+						[1, "asc"]
+					],
+					"columnDefs": [
+						{ "orderable": false, "targets": 0 }
+					],
+					"lengthChange":false,
+					"pageLength":61,
+					"paging":false,
+					"info":false,
+					"searching":false,
+					"scrollX": true
+				});
+			});
+			$(window).on('load', function() {
+				$('#loading').hide();
+			});
+		</script>
+	</section>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../ufcg.html"><img src="image/UFCG_logo.svg" width="30"> UFCG</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarsExampleDefault"
+				aria-controls="navbarsExampleDefault" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="../ufcg.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/database" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Database</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="genes.html">Genes</a>
+							<a class="dropdown-item" href="species.html">Species</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/pipeline" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pipeline</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="manual.html">Manual</a>
+							<a class="dropdown-item" href="tutorial.html">Tutorial</a>
+							<a class="dropdown-item" href="download.html">Download</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/links" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Links</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="https://github.com/endixk/ufcg" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i> GitHub</a>
+							<a class="dropdown-item" href="https://steineggerlab.com" target="_blank" rel="noopener noreferrer"><i class="fa fa-flask"></i> Steinegger Lab</a>
+							<a class="dropdown-item" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer"><i class="fa fa-creative-commons"></i> License</a>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="citation.html">Cite us</a></li>
+					</ul>
+			</div>
+		</div>
+	</nav>
+	<script>
+		$(document).ready(function() {
+			var pname = window.location.pathname;
+			var phead = '/ufcg';
+			if(pname.split('/').length > 2){
+				phead = phead + '/' + pname.split('/')[2];
+			}
+			if(phead == '/ufcg/genes' || phead == '/ufcg/species'){
+			 	phead = '/ufcg/database'
+			}
+			if(phead == '/ufcg/manual' || phead == '/ufcg/tutorial' || phead == '/ufcg/download'){
+			 	phead = '/ufcg/pipeline'
+			}
+			$('.navbar-nav > li > a[href="'+ phead +'"]').parent().addClass('active');
+		})
+	</script>
+</body>
+</html>
