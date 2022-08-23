@@ -121,7 +121,7 @@
 					<li class="nav-item"><a class="nav-link" href="ufcg">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="ufcg/about">About</a></li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/database" id="dropdown01"
+						class="nav-link dropdown-toggle" href="ufcg/database" id="dropdown01"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Database</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown01">
 							<a class="dropdown-item" href="ufcg/genes">Genes</a>
@@ -129,7 +129,7 @@
 						</div>
 					</li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/pipeline" id="dropdown01"
+						class="nav-link dropdown-toggle" href="ufcg/pipeline" id="dropdown01"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pipeline</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown01">
 							<a class="dropdown-item" href="ufcg/manual">Manual</a>
@@ -138,7 +138,7 @@
 						</div>
 					</li>
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="http://leb.snu.ac.kr/ufcg/links" id="dropdown01"
+						class="nav-link dropdown-toggle" href="ufcg/links" id="dropdown01"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Links</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown01">
 							<a class="dropdown-item" href="https://github.com/endixk/ufcg" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i> GitHub</a>
@@ -154,15 +154,15 @@
 	<script>
 		$(document).ready(function() {
 			var pname = window.location.pathname;
-			var phead = '/ufcg';
+			var phead = 'ufcg';
 			if(pname.split('/').length > 2){
 				phead = phead + '/' + pname.split('/')[2];
 			}
-			if(phead == '/ufcg/genes' || phead == '/ufcg/species'){
-			 	phead = '/ufcg/database'
+			if(phead == 'ufcg/genes' || phead == 'ufcg/species'){
+			 	phead = 'ufcg/database'
 			}
-			if(phead == '/ufcg/manual' || phead == '/ufcg/tutorial' || phead == '/ufcg/download'){
-			 	phead = '/ufcg/pipeline'
+			if(phead == 'ufcg/manual' || phead == 'ufcg/tutorial' || phead == 'ufcg/download'){
+			 	phead = 'ufcg/pipeline'
 			}
 			$('.navbar-nav > li > a[href="'+ phead +'"]').parent().addClass('active');
 		})
