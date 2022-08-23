@@ -154,15 +154,15 @@
 	<script>
 		$(document).ready(function() {
 			var pname = window.location.pathname;
-			var phead = '/ufcg';
+			var phead = 'ufcg';
 			if(pname.split('/').length > 2){
 				phead = phead + '/' + pname.split('/')[2];
 			}
-			if(phead == '/ufcg/genes' || phead == '/ufcg/species'){
-			 	phead = '/ufcg/database'
+			if(phead == 'ufcg/genes' || phead == 'ufcg/species'){
+			 	phead = 'ufcg/database'
 			}
-			if(phead == '/ufcg/manual' || phead == '/ufcg/tutorial' || phead == '/ufcg/download'){
-			 	phead = '/ufcg/pipeline'
+			if(phead == 'ufcg/manual' || phead == 'ufcg/tutorial' || phead == 'ufcg/download'){
+			 	phead = 'ufcg/pipeline'
 			}
 			$('.navbar-nav > li > a[href="'+ phead +'"]').parent().addClass('active');
 		})
