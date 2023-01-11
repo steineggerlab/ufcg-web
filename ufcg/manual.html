@@ -102,7 +102,7 @@
 	}
 </style>
 <script>
-    var version = "v1.0.3";
+    var version = "v1.0.3c";
 </script>
 </head>
 <body style="padding-top:0">
@@ -118,17 +118,19 @@
 						<h2 id="start" class="infoheader">Quick start</h2><hr>
 						<h4>Conda</h4>
 						<figure class="highlight">
-						<pre style="margin-bottom: 0">conda create -n ufcg -c bioconda -c conda-forge openjdk=8 augustus=3.5.0 mmseqs2 mafft iqtree<br>conda activate ufcg<br>wget -O UFCG.zip https://github.com/endixk/ufcg/releases/latest/download/UFCG.zip<br>unzip UFCG.zip && cd ufcg && bin/setup.sh && source ~/.bashrc<br>ufcg -h</pre>
+						<pre style="margin-bottom: 0">mamba install -y -c bioconda ufcg<br>ufcg download -t minimum<br>ufcg -h</pre>
 						</figure>
 						<hr>
 						<h4>Docker</h4>
 						<figure class="highlight">
-						<pre style="margin-bottom: 0">docker pull endix1029/ufcg:latest<br>docker run -it endix1029/ufcg:latest<br>cd ufcg<br>ufcg -h</pre>
+						<pre style="margin-bottom: 0">docker pull endix1029/ufcg:latest<br>docker run -it endix1029/ufcg:latest<br>ufcg -h</pre>
 						</figure>
 						<hr>
 						<h4>Manual installation</h4>
-						<h5>Download <a href="download" target="_blank"><i class="fa fa-link" style="font-size:70%"></i></a></h5>
-						<p class="plast">Download and unzip the compressed UFCG pipeline from the download page, or use this direct link. <a href="https://github.com/endixk/ufcg/releases/latest/download/UFCG.zip"><i class="fa fa-file-archive-o"></i></a><br>UFCG runs with the command-line interface on UNIX based operating systems. (Linux, macOS etc.)</p>
+						<figure class="highlight">
+						<pre style="margin-bottom: 0">wget --quiet "https://github.com/steineggerlab/ufcg/releases/download/v1.0.3c/ufcg.tar.gz"<br>tar -xzf ufcg.tar.gz<br>ufcg/bin/setup.sh<br># restart shell<br>ufcg download -t minimum<br>ufcg -h</pre>
+						</figure>
+						<hr>
 						<h5>Requirements</h5>
 						<p>Before installation, please make sure that the required programs are properly installed. Links for the installation of the requirements are listed in the download page.</p>
 						<ul>
@@ -184,12 +186,6 @@
 					</div>
 					<div class="infobox">
 						<h2 id="content" class="infoheader">Contents</h2><hr>
-						<h4>Directory structure</h4>
-						<p>By unzipping the file, a directory with following structure will be created.</p>
-						<figure class="highlight">
-							<pre style="margin-bottom: 0"><i class="fa fa-folder-open"></i><strong> UFCG/</strong><br>┣━ <i class="fa fa-folder-open"></i><strong> config/</strong><br>┃ ┣━ <i class="fa fa-folder-open"></i><strong> seq/</strong><br>┃ ┣━ <i class="fa fa-folder-open"></i><strong> model/</strong><br>┃ ┣━ <strong>ppx.cfg</strong><br>┃ ┗━ <strong>tree.cfg</strong><br>┣━ <i class="fa fa-folder-open"></i><strong> sample/</strong><br>┃ ┣━ <i class="fa fa-folder-open"></i><strong> seq/</strong><br>┃ ┣━ <i class="fa fa-folder-open"></i><strong> out/</strong><br>┃ ┣━ <i class="fa fa-folder-open"></i><strong> tree/</strong><br>┃ ┣━ <strong style="color:#0000cc">meta_full.tsv</strong><br>┃ ┗━ <strong style="color:#0000cc">meta_simple.tsv</strong><br>┣━ <i class="fa fa-folder-open"></i><strong> bin/</strong><br>┣━ <i class="fa fa-folder-open"></i><strong> jar/</strong><br>┗━ <strong>README.txt</strong></pre>
-						</figure>
-						<p class="plast"></p>
 						<h4>Config files</h4>
 						<ul>
 							<li><strong class="inline-code">seq/</strong> contains reference protein/nucleotide sequences of pre-defined genetic markers.</li>
