@@ -154,7 +154,11 @@
 						</tbody>
 					</table></div>
 					<h5>Sample files</h5>
-					<p>After unzipping the compressed file, you can find all the required files from <strong class="inline-code">sample/</strong> directory. The directory contains following components.</p>
+					<p>After running following command, you will find all the required files from <strong class="inline-code">sample/</strong> directory.</p>
+					<figure class="highlight">
+						<pre><span style="color:#888888">$</span> <strong>ufcg download -d . -t sample</strong></pre>
+					</figure>
+					<p>The directory contains following components.</p>
 					<ul>
 						<li><strong class="inline-code">seq/</strong> : Directory with the <strong>whole genome assemblies</strong> of the species above</li>
 						<li><strong class="inline-code">out/</strong> : Directory containing previously extracted <strong>core gene profiles</strong></li>
@@ -173,7 +177,6 @@
 					<h5>Run <span class="inline-code">profile</span> module</h5>
 					<p>Launch <span class="inline-code">profile</span> module in interactive mode by entering following command on your terminal.</p>
 					<figure class="highlight">
-						<pre><span style="color:#888888">$</span> <strong>cd /path/to/UFCG/</strong></pre>
 						<pre><span style="color:#888888">$</span> <strong>ufcg profile -u</strong></pre>
 					</figure>
 					<p>The program will tell you to enter the input file or directory. We want to use the entire directory as an input, therefore you should enter the path where the genomes are lying.</p>
@@ -208,7 +211,7 @@
 					</figure>
 					<p>Finally, after refusing to configurate the advanced options, the pipeline will display the single-line command to run, and ask for your final confirmation. Enter 'y' to launch the pipeline.</p>
 					<figure class="highlight">
-						<pre style="white-space:pre-wrap;word-wrap:break-word"><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Follwing command will be executed : </span><strong style="color:#fdb900">ufcg profile --input sample/seq/ --output sample/out/ --force 1 --thread 10 --metadata sample/meta_full.tsv</strong></pre>
+						<pre style="white-space:pre-wrap;word-wrap:break-word"><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Follwing command will be executed : </span><strong style="color:#fdb900">ufcg profile --input sample/seq/ --output sample/out/ --set PRO --thread 10 --metadata sample/meta_full.tsv</strong></pre>
 						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Confirm? Enter y (confirm) / n (reset) / x (exit) : </span><strong>y</strong></pre>
 					</figure>
 					<p><strong>Tip.</strong> If you copy and save the command, you can skip the entire interactive process next time.</p>
@@ -219,12 +222,13 @@
 						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Reading input data...</span></pre>
 						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Queries prepared. 6 genome sequences identified.</span></pre>
 						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">QUERY 1/6 : </span><span style="color:#fdb900">GCA_000091045.1 </span><span style="color:#6633ff">(Cryptococcus neoformans)</span></pre>
+						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">Extracting protein markers...</span></pre>
 						<pre><strong style="color:#11ccff">UFCG |: </strong><span style="color:#444444">PROGRESS : [<span style="color:#666666">XXXXXXXXXX...XXX</span>]</span></pre>
 					</figure>
 					<p>Alphabets in the progress bar, which dynamically change during the extraction process, indicate the current status of the genes from the UFCG set as following.</p>
 					<table class="table table-sm" style="max-width:80%;margin-left:auto;margin-right:auto">
 						<thead>
-							<th scope="col" colspan="2" style="width:30%">Ready</th>
+							<th scope="col" colspan="2" style="width:30%">Pending</th>
 							<th scope="col" colspan="2" style="width:35%">Processing</th>
 							<th scope="col" colspan="2" style="width:35%">Processed</th>
 						</thead>
@@ -239,7 +243,7 @@
 							</tr>
 							<tr>
 								<td class="inline-code"><span style="font-size:100%;padding:2px 2px;background-color:#000000;color:#9e9e9e">X</span></td>
-								<td>Ready</td>
+								<td>Pending</td>
 								<td class="inline-code"><span style="font-size:100%;padding:2px 2px;background-color:#000000;color:#ff00ff">S</span></td>
 								<td>Searching</td>
 								<td class="inline-code"><span style="font-size:100%;padding:2px 2px;background-color:#000000;color:#009900">O</span></td>
@@ -290,14 +294,14 @@
 					<h5>Run <span class="inline-code">tree</span> module</h5>
 					<p>Launch the module by entering the directory with profiles as an input, labeling them with unique IDs. Since we do not want to perform precise phylogeny here, we will use <code>FastTree</code>.</p>
 					<figure class="highlight">
-						<pre style="white-space:pre-wrap;word-wrap:break-word"><span style="color:#888888">$</span> <strong>ufcg tree -i sample/out/ -l uid -a protein -o sample/tree/ -n tutorial -t 10 -p fasttree</strong></pre>
+						<pre style="white-space:pre-wrap;word-wrap:break-word"><span style="color:#888888">$</span> <strong>ufcg tree -i sample/out/ -l uid -o sample/tree/ -n tutorial -t 10 -p fasttree</strong></pre>
 					</figure>
 					<p>The pipeline will automatically detect <span class="inline-code">.ucg</span> files from <span class="inline-code">sample/out/</span> directory, perform multiple alignment on each core gene, and reconstruct the phylogenetic tree along with the single gene trees on <span class="inline-code">sample/tree/tutorial/</span> directory.</p>
 					<hr>
 					<h5>Check results</h5>
 					<p>Run following command to check the contents of the result directory.</p>
 					<figure class="highlight">
-						<pre><span style="color:#888888">$</span> <strong>ls -X1 sample/tree/tutorial/</strong><hr><strong style="color:#0000cc">align</strong><br><strong style="color:#0000cc">misc</strong><br><strong style="color:#0000cc">tree</strong><br>aligned_concatenated.fasta<br>tutorial.log<br>concatenated.nwk<br>concatenated_gsi_65.nwk<br>tutorial.trm</pre>
+						<pre><span style="color:#888888">$</span> <strong>ls -1 sample/tree/tutorial/</strong><hr><strong style="color:#0000cc">align</strong><br>aligned_concatenated.fasta<br>concatenated.nwk<br>concatenated_gsi_50.nwk<br><strong style="color:#0000cc">misc</strong><br><strong style="color:#0000cc">tree</strong><br>tutorial.log<br>tutorial.trm</pre>
 					</figure>
 					<ul>
 						<li><strong class="inline-code" style="color:#0000cc">align</strong> directory contains FASTA formatted <strong>single gene alignments</strong> of 68 core genes.</li>
@@ -305,7 +309,7 @@
 					</ul>
 					<p>Reconstructed phylogenetic tree is written in <strong class="inline-code">concatenated.nwk</strong>. Printing the Newick tree in a plain text will display its content such as following (unique ID number may differ).</p>
 					<figure class="highlight">
-						<pre><span style="color:#888888">$</span> <strong>cat sample/tree/tutorial/concatenated.nwk</strong><hr>(4263952451731213441:0.243092227,5273552662905313943:0.217864271,<br>((5766125292192400323:0.322140081,6282644843417492679:0.321038175)<br>1.000:0.110831127,(5340792663224739640:0.292152921,7745401375688138845:<br>0.249360935)1.000:0.088541733)1.000:0.054581755);</pre>
+						<pre><span style="color:#888888">$</span> <strong>cat sample/tree/tutorial/concatenated.nwk</strong><hr>((8255661378167235541:0.339741572,8500290590050038758:0.372848133)<br>1.000:0.166894959,(653512030666424077:0.477038224,8527107384299568166:0.366508240)<br>1.000:0.164010396,(4422721812785568721:0.391354384,7201562467530039230:0.367452677)1.000:0.096539693);</pre>
 					</figure>
 					<p>Oops! Since we labelled the leaves with their unique IDs, this tree does not inform us the actual taxonomic relationship in a glance. We have to replace their label with proper metadata to solve this problem.</p>
 					<hr>
@@ -317,7 +321,7 @@
 					<p>This process will create the replaced UFCG tree as <strong class="inline-code">replaced.UFCG.nwk</strong> in current directory. Move it to our tutorial directory and check its content.</p>
 					<figure class="highlight">
 						<pre><span style="color:#888888">$</span> <strong>mv replaced.UFCG.nwk sample/tree/tutorial/replaced.nwk</strong></pre>
-						<pre><span style="color:#888888">$</span> <strong>cat sample/tree/tutorial/replaced.nwk</strong><hr>(Spizellomyces_punctatus|DAOM_BR117:0.243092227,Rhizopus_oryzae|99-892:0.217864271,<br>((Aspergillus_nidulans|FGSC_A4:0.322140081,Saccharomyces_cerevisiae|S288C:0.321038175)<br>1.000:0.110831127,(Trametes_versicolor|FP-101664_SS1:0.292152921,Cryptococcus_neoformans<br>|JEC21:0.249360935)1.000:0.088541733)1.000:0.054581755);</pre>
+						<pre><span style="color:#888888">$</span> <strong>cat sample/tree/tutorial/replaced.nwk</strong><hr>((Cryptococcus_neoformans|JEC21:0.339741572,Trametes_versicolor|FP-101664_SS1:0.372848133)<br>1.000:0.166894959,(Saccharomyces_cerevisiae|S288C:0.477038224,Aspergillus_nidulans|FGSC_A4:0.366508240)<br>1.000:0.164010396,(Spizellomyces_punctatus|DAOM_BR117:0.391354384,Rhizopus_oryzae|99-892:0.367452677)<br>1.000:0.096539693);</pre>
 					</figure>
 					<div class="callout callout-primary">
 						<h6>Well done!</h6>
@@ -325,13 +329,13 @@
 					</div>
 				</div>
 				<div class="infobox">
-					<h1 id="mega" class="infoheader">Visualize result <span style="font-size:60%;font-weight:normal">with MEGA X <a href="https://www.megasoftware.net/home" target="_blank" rel="noopener noreferer"><img src="image/megax.png" style="width:20px;padding-bottom:5px"></a></span></h1><hr>
-					<p>MEGA X, provided by MEGA software, is used as a visualization toolkit in this tutorial. Use this external link to download the software. <a href="https://www.megasoftware.net/home" target="_blank" rel="noopener noreferer"><i class="fa fa-external-link"></i></a></p>
-					<p>Launch the MEGA X application and load up the replaced tree with <strong>Analysis - User Tree - Display Newick Trees</strong> menu. The tree will be visualized such as following image.</p>
+					<h1 id="mega" class="infoheader">Visualize result <span style="font-size:60%;font-weight:normal">with MEGA 11 <a href="https://www.megasoftware.net/home" target="_blank" rel="noopener noreferer"><img src="image/megax.png" style="width:20px;padding-bottom:5px"></a></span></h1><hr>
+					<p>MEGA, provided by MEGA software, is used as a visualization toolkit in this tutorial. Use this external link to download the software. <a href="https://www.megasoftware.net/home" target="_blank" rel="noopener noreferer"><i class="fa fa-external-link"></i></a></p>
+					<p>Launch the MEGA application and load up the replaced tree with <strong>Analysis - User Tree - Display Newick Trees</strong> menu. The tree will be visualized such as following image.</p>
 					<img src="image/megax_tutorial_init.png" style="max-width:100%;padding:1rem 5%">
 					<p>By rearranging the subtrees and labeling them with phyla, the tree can be modified like following.</p>
 					<img src="image/megax_tutorial_arr.png" style="max-width:100%;padding:1rem 5%">
-					<p>Considering <em style="font-family:serif;font-weight:bold">Spizellomyces punctatus</em> as an outgroup species, you can easily see that the classification of remaining species are intact, corresponding to the known phylogenetic relationship of fungal phyla.</p>
+					<p>Considering <em style="font-family:serif;font-weight:bold">Spizellomyces punctatus</em> as a root, you can easily see that the classification of remaining species are intact, corresponding to the known phylogenetic relationship of fungal phyla.</p>
 					<div class="callout callout-primary">
 						<h6>Nicely done!</h6>
 						<p>This is the end of the tutorial. You are now ready to reconstruct the phylogenetic relationship with your own fungal genome assemblies. Feel free to email us if you have any additional questions to ask, want some technical difficulties to be solved, or wish to give us some kind suggestions for improvement. <a href="mailto:endix1029@gmail.com" target="_top" style="color:black"><i class="fa fa-envelope-o"></i></a></p>
