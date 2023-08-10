@@ -102,7 +102,7 @@
 	}
 </style>
 <script>
-    var version = "v1.0.3c";
+    var version = "v1.0.5";
 </script>
 </head>
 <body style="padding-top:0">
@@ -118,7 +118,7 @@
 						<h2 id="start" class="infoheader">Quick start</h2><hr>
 						<h4>Conda</h4>
 						<figure class="highlight">
-						<pre style="margin-bottom: 0">mamba install -y -c bioconda ufcg<br>ufcg download -t minimum<br>ufcg -h</pre>
+						<pre style="margin-bottom: 0">conda install -y -c bioconda ufcg<br>ufcg download -t minimum<br>ufcg -h</pre>
 						</figure>
 						<hr>
 						<h4>Docker</h4>
@@ -128,13 +128,14 @@
 						<hr>
 						<h4>Manual installation</h4>
 						<figure class="highlight">
-						<pre style="margin-bottom: 0">wget --quiet "https://github.com/steineggerlab/ufcg/releases/download/v1.0.3c/ufcg.tar.gz"<br>tar -xzf ufcg.tar.gz<br>ufcg/bin/setup.sh<br># restart shell<br>ufcg download -t minimum<br>ufcg -h</pre>
+						<pre style="margin-bottom: 0">git clone "https://github.com/steineggerlab/ufcg.git"<br>cd ufcg<br>mvn clean package appassembler:assemble<br>./target/bin/ufcg download -t minimum<br>./target/bin/ufcg -h</pre>
 						</figure>
 						<hr>
-						<h5>Requirements</h5>
+						<h5>Requirements (manual installation)</h5>
 						<p>Before installation, please make sure that the required programs are properly installed. Links for the installation of the requirements are listed in the download page.</p>
 						<ul>
-							<li>Entire pipeline is written in Java language, thereby you should install and establish <strong>Java Runtime Environment</strong> with a version higher than 8 to run the pipeline.</li>
+							<li><strong>Java Runtime Environment</strong> with a version higher than 8</li>
+							<li><strong>Maven</strong> with a version higher than 3.9.4</li>
 							<li><strong>AUGUSTUS</strong> and <strong>MMSeqs2</strong> are required for running <code>profile</code> module.
 								<!-- Modal -->
 								<i class="fa fa-info-circle modal-button" data-toggle="modal" data-target="#uucgfreq"></i>
@@ -210,7 +211,7 @@
 						<p class="plast"></p>
 						<h4>Pipeline</h4>
 						<ul>
-							<li><strong class="inline-code" style="color:#009900">bin/ufcg</strong> is an executable of the pipeline.</li>
+							<li><strong class="inline-code" style="color:#009900">ufcg</strong> or <strong class="inline-code" style="color:#009900">ufcg.jar</strong> is an executable of the pipeline.</li>
 						</ul>
 					</div>
 					<div class="infobox">
